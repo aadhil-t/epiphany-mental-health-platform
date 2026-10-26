@@ -16,7 +16,7 @@ This project focuses on delivering a responsive, user-friendly digital experienc
 
 ## Technologies Used
 
-HTML5, CSS3 / SCSS, JavaScript, PHP / WordPress *(use only the technologies you actually worked with).*
+HTML5, CSS3 / SCSS, JavaScript, PHP / WordPress 
 
 ## My Role
 
