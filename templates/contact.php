@@ -1,0 +1,155 @@
+<?php
+/*
+    Template Name: contact Page
+    */
+
+get_header();
+$pageID = get_the_ID();
+
+function home_scripts()
+{ ?>
+
+
+<?php } ?>
+
+<?php 
+$banner = get_field('banner_section',$pageID);
+
+if ($banner): 
+
+    $image = $banner['banner_image'];
+    $title = $banner['title'];
+    $subtitle = $banner['subtitle'];
+    $button = $banner['button_link']; 
+
+    if (!empty(array_filter($banner))):
+?>
+
+<section class="sub-banner-section">
+
+    <div class="sub-background-img" 
+        <?php if ($image): ?> 
+            style="background-image:url('<?php echo esc_url($image['url']); ?>');"
+        <?php endif; ?>
+    >
+
+        <div class="content-blk">
+            <div class="container">
+                <div class="sub-banner-content">
+
+                    <?php if ($title || $subtitle): ?>
+                    <div>
+                        <?php if ($title): ?>
+                            <h1 data-aos="fade-right"><?php echo esc_html($title); ?></h1>
+                        <?php endif; ?>
+
+                        <?php if ($subtitle): ?>
+                            <h3 data-aos="fade-right" aria-level="2"><?php echo esc_html($subtitle); ?></h3>
+                        <?php endif; ?>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if ($button): 
+                        $url = $button['url'];
+                        $text = $button['title'];
+                        $target = $button['target'] ? $button['target'] : '_self';
+                    ?>
+                    <div data-aos="fade-left">
+                        <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($target); ?>" class="consult-btn-bnr">
+                            <?php echo esc_html($text); ?>
+                        </a>
+                    </div>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<?php 
+    endif;
+endif;
+?>
+
+<section class="appointment-section">
+  <div class="container">
+    <div class="appointment-wrapper">
+
+     
+      <?php 
+$appointment = get_field('appointment_section');
+
+if ($appointment):
+
+    $title = $appointment['title'];
+    $address = $appointment['address'];
+    $phone = $appointment['phone'];
+    $email = $appointment['email'];
+
+    if ($title || $address || $phone || $email):
+?>
+
+<div class="appointment-left">
+
+                        <?php if ($title): ?>
+                            <h2 data-aos="fade-right">
+                                <?php echo nl2br(esc_html($title)); ?>
+                            </h2>
+                        <?php endif; ?>
+
+                    
+                        <div class="image-box" data-aos="zoom-in">
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/contact/bird.png" alt="Bird">
+                        </div>
+
+                        <ul class="contact-info" data-aos="fade-right">
+
+                            <?php if ($address): ?>
+                                <li class="address">
+                                    <?php echo esc_html($address); ?>
+                                </li>
+                            <?php endif; ?>
+
+                        <?php if ($phone): 
+                        $clean_phone = preg_replace('/[^0-9+]/', '', $phone);
+                    ?>
+                        <li class="phone">
+                            <a href="tel:<?php echo esc_attr($clean_phone); ?>" style="color: inherit; text-decoration: none;">
+                                <?php echo esc_html($phone); ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if ($email): ?>
+                        <li class="email">
+                            <a href="mailto:<?php echo esc_attr($email); ?>" style="color: inherit; text-decoration: none;">
+                                <?php echo esc_html($email); ?>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+
+                        </ul>
+
+                    </div>
+
+                    <?php 
+                        endif;
+                    endif;
+?>
+
+            <div class="appointment-right">
+            <div data-aos="fade-left">
+                <?php echo do_shortcode('[contact-form-7 id="YOUR_FORM_ID" title="Contact form"]'); ?>
+            </div>
+            </div>  
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<?php get_footer(); ?>

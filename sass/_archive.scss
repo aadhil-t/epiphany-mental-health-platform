@@ -1,0 +1,21 @@
+
+.archive {
+      background:
+    linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+    url('../images/why-epiphany/bg.png');
+    h1{
+        font-family: $secondary-font;
+        span{
+            font-family: $secondary-font;
+            font-weight: 600;
+        }    
+    }
+    .archive-description{
+        font-family: $primary-font;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0%;
+    }
+}

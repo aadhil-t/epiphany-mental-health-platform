@@ -1,0 +1,144 @@
+// .next-blog-sec{
+//     background:
+//     linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+//     url('../images/why-epiphany/bg.png');
+//     .next-blog-wrapper{
+//         display: flex;
+//         .blog-info{
+
+//         }
+//     }
+// }   
+
+
+.next-blog-sec {
+  padding: 60px 0;
+  background: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+    url('../images/why-epiphany/bg.png');
+  background-size: cover;
+  background-position: center;
+
+  .next-blog-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  .nav-blog {
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .nav-blog a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    text-transform: capitalize;
+    color: #555;
+    text-decoration: none;
+    margin-bottom: 12px;
+    letter-spacing: 0.4px;
+  }
+
+  .nav-blog a img {
+    width: 10px;
+    height: 10px;
+    transition: 0.3s ease;
+  }
+
+  .blog-info h3 {
+      margin: 0;
+      font-family: $primary-font;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 25px;
+      line-height: 35px;
+      font-weight: 400;
+      color: rgba(60, 24, 42, 1);
+    }
+
+  .prev-blog a img {
+    transform: rotate(90deg);
+    
+  }
+
+  /* Hide previous by default */
+  .prev-blog {
+    display: none;
+  }
+
+  /* Only Next visible */
+  &.has-only-next {
+    .next-blog-wrapper {
+      justify-content: flex-end;
+    }
+
+    .prev-blog {
+      display: none;
+    }
+
+    .next-blog {
+      display: block;
+    }
+  }
+
+  /* Show both */
+  &.has-both {
+    .next-blog-wrapper {
+      justify-content: space-between;
+    }
+
+    .prev-blog {
+      display: block;
+    }
+
+    .next-blog {
+      display: block;
+    }
+  }
+
+  /* Only Previous */
+  &.has-only-prev {
+    .next-blog-wrapper {
+      justify-content: flex-start;
+    }
+
+    .prev-blog {
+      display: block;
+    }
+
+    .next-blog {
+      display: block;
+    }
+  }
+
+  /* Hover */
+  .next-blog:hover a img {
+    transform: translatex(4px);
+  }
+
+  .prev-blog:hover a img {
+    transform: rotate(90deg) translatey(4px);
+  }
+
+  @media (max-width: 991px) {
+    .next-blog-wrapper {
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .blog-info h3 {
+      font-size: 26px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    padding: 40px 0;
+
+    .blog-info h3 {
+      font-size: 22px;
+    }
+  }
+}

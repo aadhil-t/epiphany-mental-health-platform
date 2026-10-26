@@ -1,0 +1,78 @@
+.therapy-expect{
+    .wp-block-heading{
+        padding-bottom: 20px;
+    }
+    p{
+        margin-bottom: 8px;
+    }
+    .wp-block-quote {
+        border-left: .25em solid rgb(195, 122, 27) !important;
+        padding: 10px 10px 10px 20px !important;
+        margin: 1em 0px !important;
+        
+    }
+          ul {
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+  
+        li {
+          position: relative;
+          padding-left: 22px;
+          margin-bottom: 10px;
+          font-size: 17px;
+          line-height: 35px;
+          text-align: start;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 12px;
+            height: 12px;
+            background: url('../images/service/therapy/circle.svg') no-repeat center;
+            background-size: contain;
+            display: block;
+          }
+        }
+      }
+
+      ol {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: item;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+
+  li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    line-height: 35px;
+    text-align: start;
+    counter-increment: item;
+    
+    &::before {
+        content: counter(item);
+        position: absolute;
+        color: rgb(195, 122, 27);
+      left: 0;
+      top: 4px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1;
+    }
+  }
+}
+}

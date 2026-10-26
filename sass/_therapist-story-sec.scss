@@ -1,0 +1,172 @@
+.rachel-story-section {
+  padding: 0 0 100px;
+  position: relative;
+  background:
+    linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+    url('../images/why-epiphany/bg.png');
+    background-position:center;
+    background-size:cover;
+    z-index: 1;
+
+  /* MAIN HEADING */
+  .rachel-story-wrapper{
+    // max-width: 38rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 80px;
+    @media (max-width:  950px) {
+      gap: 40px;
+      flex-direction: column-reverse;
+    }
+    h2 {
+      font-size: 40px;
+      color: #a14f3c;
+      font-family: $primary-font;
+      font-weight: 300;
+      line-height: 50px;
+      margin-bottom: 20px;
+    }
+  
+    /* SUB HEADINGS */
+    h4 {
+      font-family: $primary-font;
+      font-size: 25px;
+      line-height: 35px;
+      margin-top: 25px;
+      margin-bottom: 10px;
+      color: #3C182A;
+      font-weight: 400;
+    }
+
+    h6{
+      font-family: $primary-font;
+      font-size: 17px;
+      line-height: 35px;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+  
+    /* PARAGRAPH */
+    p {
+      font-size: 17px;
+      line-height: 28px;
+      color: #1a1818;
+      margin-bottom: 11px;
+    }
+  
+    
+      ul {
+        padding-left: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+  
+        li {
+          position: relative;
+          padding-left: 22px;
+          margin-bottom: 10px;
+          font-size: 17px;
+          line-height: 35px;
+          text-align: start;
+          &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 12px;
+            height: 12px;
+            background: url('../images/service/therapy/circle.svg') no-repeat center;
+            background-size: contain;
+            display: block;
+          }
+        }
+      }
+      .rachel-story-right{
+        position: sticky;
+        top: 120px;
+        align-self: flex-start;
+        margin-top: -605px;
+        @media (max-width: 950px) {
+          position: unset;
+          top: unset;
+          margin-top: 0;
+          align-self: center;
+        }
+        .image-card {
+          background: #FFFFFF;
+          padding: 18px;
+          width: 100%;
+          min-width: 505px;
+          position: relative;
+          z-index: 1;
+          @media (max-width: 1030px) {
+            min-width: unset !important;
+          }
+        }
+        
+        .image-card::before {
+          content: "";
+          position: absolute;
+          
+          top: -45px;
+          right: 150px;
+          width: 200px;
+          height: 100px;
+          background: url("../images/therapist/tape.png") no-repeat center;
+          background-size: contain;
+          z-index: 2; // place behind card
+          @media (max-width: 768px) {
+            right: 120px;
+          }
+          @media (max-width: 425px) {
+            right: 90px;
+          }
+          @media (max-width: 375px) {
+            right: 60px;
+          }
+        }
+      
+      .img-wrap {
+        position: relative;
+        img {
+          width: 100%;
+          max-width: 466px;
+          max-height: 608px;
+          object-fit: cover;
+          display: block;
+        }
+      }
+      
+      .card-footer {
+          text-align: center;
+          padding: 31px 10px 16px;
+          // padding: 18px 10px 5px;
+          a {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            text-decoration: none;
+            border: 1px solid #9db5a6;
+            padding: 8px 14px;
+            font-family: $primary-font;
+            border-radius: 20px;
+            font-weight: 700;
+            display: inline-block;
+            font-style: Bold;
+            letter-spacing: 10%;
+
+          }
+          
+        }
+      }
+    .rachel-story-left {
+      max-width: 38rem;
+      flex: 1;
+      @media (max-width: 950px) {
+        max-width: unset;
+      }
+    }
+ }
+}

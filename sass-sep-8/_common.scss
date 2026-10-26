@@ -1,0 +1,278 @@
+.circle-btn{
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+    .circle-arrow {
+      width: 50px;
+      height: 50px;
+      background: #c47a1b;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    
+      .arrow,
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        background-image: url("../images/common/arrow.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 60%; // ✅ prevents any SVG edge artifacts
+        box-shadow: none;
+        transform-origin: center;
+        transition: transform 0.35s ease, opacity 0.35s ease;
+    
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+    
+      /* initial arrow (centered) */
+      .arrow {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        box-shadow: none;
+      }
+    
+      /* incoming arrow */
+      &::after {
+        content: "";
+        transform: translate(-120%, 120%); // start ↙
+        opacity: 0;
+      }
+    
+      &:hover {
+        .arrow {
+          transform: translate(120%, -120%); // move ↗ out
+          opacity: 0;
+        }
+    
+        &::after {
+          transform: translate(-50%, -50%); // center
+          opacity: 1;
+        }
+      }
+    }
+}
+
+
+// consult button //
+.consult-btn{
+  position:absolute;
+  left:50%;
+  bottom:-70px;
+  transform:translateX(-50%);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  padding: 50px 50px;
+  text-decoration:none;
+  background:url('../images/common/btn-cutting.svg') no-repeat center;
+  background-size:100% 100%;
+  background-position: -8px -2px;
+  z-index:1;
+
+  span{
+    color:#fff; 
+    font-size:14px;
+    letter-spacing:2px;
+    font-weight:600;
+    text-transform:uppercase;
+    position:relative;
+    z-index:2;
+  }
+
+  transition:transform .3s ease;
+
+  &:hover{
+    transform:translateX(-50%) scale(1.05);
+  }
+  @media (max-width: 500px) {
+    padding: 36px 20px;
+    width: 100%;
+  }
+}
+
+
+// read button //
+.read-btn{
+  display:inline-block;
+  padding:14px 24px;
+  border: 1px solid #4D988C;
+  border-radius:25px;
+  font-size:14px;
+  font-weight: 700 !important;
+  letter-spacing:1px;
+  color: #1A1818 !important;
+  text-decoration:none;
+  transition:.3s;
+  font-family: $primary-font !important;
+  font-weight: 700;
+  font-style: Bold;
+  line-height: 100%;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+
+  &:hover{
+    background: #4D988C;
+    color:#fff !important;
+  }
+  &:hover a{
+    background: #4D988C;
+    color:#fff !important;
+  }
+}
+
+
+
+// greeen btn //
+  .green-btn {
+        margin-top: 10px;
+        background: rgba(77, 152, 140, 1);
+        color: #fff;
+        border: 1px solid transparent;
+        padding: 12px 22px;
+        border-radius: 25px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        width: fit-content;
+        transition: background 0.3s ease, color 0.3s ease, border 0.3s ease, transform 0.2s ease;
+        &:hover {
+          background: #fff;
+          border: 1px solid rgba(77, 152, 140, 1);
+          color: rgba(77, 152, 140, 1) !important;
+          transform: translateY(-2px);
+        }
+    }
+
+
+
+    //  FAQ section //
+    
+    .faq-section {
+      padding: 120px 0;
+      background:
+        linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+        url('../images/why-epiphany/bg.png');
+        background-size: cover;
+        overflow: hidden;
+    
+      .faq-wrapper {
+        display: grid;
+        grid-template-columns: 391px 1fr;
+        gap: 30px;
+        align-items: flex-start;
+    
+        @media (max-width: 991px) {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+    
+      .faq-left {
+        h2 {
+          color: rgba(130, 38, 15, 1);
+          font-family: $secondary-font;
+          margin: 0;
+        }
+      }
+    
+      .faq-right {
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+      }
+    
+      .faq-item {
+        border-bottom:  1px solid rgba(0, 0, 0, 0.1);
+    
+        &.active {
+          .faq-answer {
+            max-height: 500px;
+            padding-bottom: 25px;
+          }
+    
+          .arrow {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    
+      .faq-question {
+        width: 100%;
+        background: transparent;
+        border: none;
+        padding: 24px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        position: relative;
+        cursor: pointer;
+        text-align: left;
+    
+        span {
+          font-family: $primary-font;
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 25px;
+          line-height: 35px;
+          letter-spacing: 0%;
+          color: rgba(60, 24, 42, 1);
+          flex: 1;
+          @media (max-width: 768px) {
+            font-size: 20px;
+            line-height: 30px;
+          }
+        }
+    
+        .arrow {
+          width: 16px;
+          height: 16px;
+          min-width: 16px;
+          background: url("../images/about/arrow.svg") no-repeat center;
+          background-size: contain;
+          transition: transform 0.3s ease;
+          transform-origin: center;
+          flex-shrink: 0;
+          top: 50%;
+          left: 99%;
+          transform: translate(-50%, -50%);
+          background-color: transparent;
+          box-shadow: none;
+        }
+      }
+    
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+    
+        p {
+          font-family: $primary-font;
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 17px;
+          line-height: 28px;
+          letter-spacing: 0%;
+          margin: 0 0 18px;
+          @media (max-width: 768px) {
+            font-size: 14px;
+            line-height: 24px;
+          }
+    
+    
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }

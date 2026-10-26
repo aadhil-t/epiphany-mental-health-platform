@@ -1,0 +1,116 @@
+.faq-section {
+  padding: 120px 0;
+  background: #f6ede6 url("../images/texture-bg.png");
+  background-size: cover;
+  overflow: hidden;
+}
+.faq-section .faq-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 320px 60px 1fr;
+  grid-template-columns: 320px 1fr;
+  gap: 60px;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+@media (max-width: 991px) {
+  .faq-section .faq-wrapper {
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.faq-section .faq-left h2 {
+  font-size: 62px;
+  line-height: 0.95;
+  font-weight: 300;
+  color: #a05b47;
+  margin: 0;
+  letter-spacing: -1px;
+}
+@media (max-width: 991px) {
+  .faq-section .faq-left h2 {
+    font-size: 42px;
+  }
+}
+@media (max-width: 575px) {
+  .faq-section .faq-left h2 {
+    font-size: 34px;
+  }
+}
+.faq-section .faq-right {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.faq-section .faq-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.faq-section .faq-item.active .faq-answer {
+  max-height: 500px;
+  padding-bottom: 25px;
+}
+.faq-section .faq-item.active .arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.faq-section .faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 24px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  text-align: left;
+}
+.faq-section .faq-question span {
+  font-size: 34px;
+  line-height: 1.2;
+  color: #372a2a;
+}
+@media (max-width: 991px) {
+  .faq-section .faq-question span {
+    font-size: 26px;
+  }
+}
+@media (max-width: 575px) {
+  .faq-section .faq-question span {
+    font-size: 20px;
+  }
+}
+.faq-section .faq-question .arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 1.5px solid #000;
+  border-bottom: 1.5px solid #000;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 5px;
+}
+.faq-section .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.faq-section .faq-answer p {
+  margin: 0 0 18px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #403535;
+}
+.faq-section .faq-answer p:last-child {
+  margin-bottom: 0;
+}

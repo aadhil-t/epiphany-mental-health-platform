@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+
+<head>
+    <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1D35AA" />
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/css/style.css?v=1" type="text/css" media="screen" />
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/style.css?v=3" type="text/css" media="screen" />
+
+    <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <?php if (!(get_site_icon_url())) : ?>
+        <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/images/favicon.ico" />
+    <?php endif;
+    wp_head(); ?>
+
+    <script>
+        var site_url = '<?php echo site_url(); ?>';
+        var directory_url = "<?php bloginfo('template_directory'); ?>";
+        window.stylesheet_directory_uri = '<?php echo get_stylesheet_directory_uri(); ?>';
+        var theme_url = '<?php echo get_template_directory_uri(); ?>';
+        var directory_url = "<?php bloginfo('template_directory'); ?>";
+        var ajax_url = "<?php echo admin_url() . "/admin-ajax.php"; ?>";
+        <?php if (get_field('head_scripts', 'option') != '') {
+            echo get_field('head_scripts', 'option');
+        } ?>
+    </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const header = document.querySelector(".site-header");
+    let lastScrollTop = 0;
+
+    function handleHeaderScroll() {
+        let currentScroll =
+            window.pageYOffset || document.documentElement.scrollTop;
+
+        // top of page = always show
+        if (currentScroll <= 10) {
+            header.classList.remove("hide-header");
+            header.classList.remove("is-sticky");
+            lastScrollTop = currentScroll;
+            return;
+        }
+
+        // sticky after scroll
+        header.classList.add("is-sticky");
+
+        if (currentScroll > lastScrollTop) {
+            // scrolling down → hide
+            header.classList.add("hide-header");
+        } else {
+            // scrolling up → show
+            header.classList.remove("hide-header");
+        }
+
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    }
+
+    window.addEventListener("scroll", handleHeaderScroll);
+});
+</script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        
+          const menuParents = document.querySelectorAll(
+            ".site-header .menu-item-has-children > a"
+          );
+        
+          menuParents.forEach(item => {
+            item.addEventListener("click", function(e) {
+        
+              if (window.innerWidth <= 1179) {
+                e.preventDefault();
+        
+                const parent = this.parentElement;
+        
+                parent.classList.toggle("submenu-open");
+              }
+        
+            });
+          });
+        
+        });
+    </script>
+
+    <?php global $wp_query;
+    global $post; ?>
+
+</head>
+
+<body <?php body_class(); ?>>
+
+    <!-- PRELOADER START -->
+<div id="preloader" aria-hidden="true">
+  <div class="loader-logo">
+    <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/header/epiphany.svg" alt="">
+  </div>
+</div>
+    
+
+
+    <div id="smooth-wrapper">
+    <div id="smooth-content">
+    <?php $pageID = get_the_ID();
+    global $post; ?>
+
+    <?php if (is_front_page() || is_home()) : ?>
+        
+    <?php endif; ?>
+
+
+<header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo-block">
+          <?php 
+          $header = get_field('header', 'option');
+
+          if($header){
+              $logo = $header['logo_image'];
+            //   $logo_link = $header['logo_link'];
+          }
+
+          if(!empty($logo)): ?>
+            <a href="<?php echo esc_url(!empty($logo_link) ? $logo_link : home_url()); ?>">
+              <img 
+                src="<?php echo esc_url($logo['url']); ?>" 
+                alt="<?php echo esc_attr(!empty($logo['alt']) ? $logo['alt'] : 'Logo'); ?>" 
+                title="<?php echo esc_attr($logo['title']); ?>" 
+                class="logo" 
+                width="124" 
+                height="44">
+            </a>
+          <?php endif; ?>
+        </div>
+
+       <nav class="hdr-nav">
+    <?php  
+    if(has_nav_menu('header_menu')){
+        wp_nav_menu(array('theme_location'=>'header_menu',
+         'menu_class' => 'main-menu',));
+    }
+    ?>
+</nav>
+
+        <div class="mobile-menu" id="hamburgerBtn" role="button" tabindex="0" aria-label="Toggle menu">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- hamburger -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const header = document.querySelector(".site-header");
+            const hamburger = document.querySelector(".mobile-menu");
+            const overlay = document.querySelector(".menu-overlay");
+
+            function openMenu(){
+                header.classList.add("mobileactive");
+
+                if(window.smoother){
+                    smoother.paused(true);   // 🔥 THIS is the real scroll lock
+                }
+            }
+
+            function closeMenu(){
+                header.classList.remove("mobileactive");
+
+                if(window.smoother){
+                    smoother.paused(false);  // 🔥 restore scroll
+                }
+            }
+
+            hamburger.addEventListener("click", function(e){
+                e.stopPropagation();
+
+                if(header.classList.contains("mobileactive")){
+                    closeMenu();
+                }else{
+                    openMenu();
+                }
+            });
+
+            // keyboard support for the div-based hamburger
+            hamburger.addEventListener("keydown", function(e){
+                if(e.key === "Enter" || e.key === " "){
+                    e.preventDefault();
+                    hamburger.click();
+                }
+            });
+
+            if(overlay){
+                overlay.addEventListener("click", closeMenu);
+            }
+
+        });
+    </script>
+
+</header>
+
+<main id="main-content">

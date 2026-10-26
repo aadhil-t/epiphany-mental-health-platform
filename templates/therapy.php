@@ -1,0 +1,197 @@
+<?php
+/*
+    Template Name: Therapy Page
+    */
+
+get_header();
+$pageID = get_the_ID();
+
+function home_scripts()
+{ ?>
+
+
+<?php } ?>
+
+<?php 
+$banner = get_field('banner_section');
+
+if ($banner): 
+    $bg_image = $banner['banner_image'];
+    $title = $banner['title'];
+    $subtitle = $banner['subtitle'];
+    $button = $banner['button_link'];
+?>
+
+<section class="sub-banner-section">
+
+    <div class="sub-background-img" 
+        style="background-image:url('<?php echo esc_url($bg_image['url']); ?>'); background-position:top;">
+
+        <div class="content-blk">
+            <div class="container">
+                <div class="sub-banner-content">
+
+                    <div>
+                        <?php if (!empty($title)): ?>
+                            <h1 data-aos="fade-right">
+                                <?php echo esc_html($title); ?>
+                            </h1>
+                        <?php endif; ?>
+
+                        <?php if (!empty($subtitle)): ?>
+                            <h3 data-aos="fade-right" aria-level="2">
+                                <?php echo esc_html($subtitle); ?>
+                            </h3>
+                        <?php endif; ?>
+                    </div>
+
+                    <?php if (!empty($button)): ?>
+                        <div data-aos="fade-left">
+                            <a href="<?php echo esc_url($button['url']); ?>" 
+                               class="consult-btn-bnr"
+                               target="<?php echo esc_attr($button['target']); ?>">
+                                <?php echo esc_html($button['title']); ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<?php endif; ?>
+
+<?php 
+$therapy = get_field('therapy_types_section');
+
+if ($therapy): 
+
+$left_content = $therapy['left_content'];
+$heading      = $therapy['section_heading'];
+$right_content= $therapy['paragraph'];
+$list         = $therapy['therapy_list'];
+?>
+
+<section class="therapy-types-section">
+  <div class="container">
+    <div class="therapy-types-wrapper">
+
+      
+      <?php if (!empty($left_content)): ?>
+      <div class="left-content">
+        <div data-aos="fade-right">
+          <?php echo wp_kses_post($left_content); ?>
+        </div>
+      </div>
+      <?php endif; ?>
+
+    
+      <?php if ($heading || $right_content || $list): ?>
+      <div class="right-content">
+
+        <?php if (!empty($heading)): ?>
+          <h2 data-aos="fade-left">
+            <?php echo esc_html($heading); ?>
+          </h2>
+        <?php endif; ?>
+
+        <?php if (!empty($right_content)): ?>
+          <div data-aos="fade-left">
+            <?php echo wp_kses_post($right_content); ?>
+         
+        <?php endif; ?>
+        <div data-aos="fade-left">
+        <p> <?php echo esc_html($therapy['approach_heading']); ?></p>
+         </div>
+        <?php if (!empty($list)): ?>
+          <ul data-aos="fade-left">
+            <?php foreach ($list as $item): 
+              if (!empty($item['therapy_item'])): ?>
+                <li><?php echo esc_html($item['therapy_item']); ?></li>
+              <?php endif; 
+            endforeach; ?>
+          </ul>
+        <?php endif; ?>
+            <div class="cbc-badge">
+        <a href="https://missfoundation.org/" target="_blank" rel="noopener noreferrer">
+            <img
+                src="https://missfoundation.org/certbadges/MISS-providerbadge-300x240px.png"
+                alt="Certified Compassionate Bereavement Care Provider">
+        </a>
+    </div>
+      </div>
+      <?php endif; ?>
+
+    </div>
+  </div>
+</section>
+
+<?php endif; ?>
+
+<?php 
+$section = get_field('therapy_acronyms_section');
+
+if ($section):
+
+$heading = $section['section_heading'];
+$items   = $section['therapy_items'];
+
+?>
+
+<section class="therapy-center-section no-after-overlay">
+  <div class="container">
+
+    <?php if (!empty($heading)): ?>
+      <h3 data-aos="fade-up">
+        <?php echo esc_html($heading); ?>
+      </h3>
+    <?php endif; ?>
+
+    <?php if (!empty($items)): ?>
+    <div class="therapy-grid-3">
+
+      <?php 
+      $i = 0;
+      foreach ($items as $item): 
+        $title = $item['title'];
+        $desc  = $item['description'];
+
+      
+        if (empty($title) && empty($desc)) continue;
+
+        
+        $alt_class = ($i % 2 != 0) ? 'alt' : '';
+      ?>
+
+      <div class="cell <?php echo $alt_class; ?>" data-aos="fade-up">
+
+        <?php if (!empty($title)): ?>
+          <h5 aria-level="4"><?php echo esc_html($title); ?></h5>
+        <?php endif; ?>
+
+        <?php if (!empty($desc)): ?>
+          <p><?php echo esc_html($desc); ?></p>
+        <?php endif; ?>
+
+      </div>
+
+      <?php 
+        $i++;
+      endforeach; 
+      ?>
+
+    </div>
+    <?php endif; ?>
+
+  </div>
+</section>
+
+<?php endif; ?>
+
+
+
+<?php get_footer(); ?>

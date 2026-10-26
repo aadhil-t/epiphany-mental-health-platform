@@ -1,0 +1,187 @@
+<?php
+get_header();
+$pageID = get_the_ID();
+
+function home_scripts()
+{ ?>
+
+
+<?php } ?>
+
+<?php
+$page = get_page_by_path('team-detail'); 
+
+if ($page) {
+  $banner = get_field('banner_section', $page->ID);
+}
+if (isset($banner) && !empty(array_filter($banner))): 
+?>
+<section class="sub-banner-section">
+    <div class="sub-background-img" style="background-image: url('<?php echo $banner['banner_image']['url']; ?>');" alt="<?php echo $banner['banner_image']['alt']; ?>"  title="<?php echo $banner['banner_image']['title']; ?>" >
+        <div class="content-blk">
+            <div class="container">
+                <div class="sub-banner-content">
+                    <?php if(!empty($banner['title'])): ?>
+                    <div>
+                        <h1 data-aos="fade-right"><?php echo $banner['title']; ?></h1>
+                    
+                    <?php endif; ?>
+                       <?php if(!empty($banner['subtitle'])): ?>
+                    
+                        <h3 data-aos="fade-right" aria-level="2"><?php echo $banner['subtitle']; ?></h3>
+                    </div>
+                    <?php endif; ?>
+                    <?php if($banner['button_link']): ?>
+                    <div data-aos="fade-left">
+                        <a href="<?php echo $banner['button_link']['url']; ?>" target="<?php echo $banner['button_link']['target']; ?>" class="consult-btn-bnr">
+                            <?php echo $banner['button_link']['title']; ?>
+                        </a>
+                    </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
+<?php 
+
+$name  = get_the_title();
+$role  = get_field('designation');
+$image = get_field('profile_image');
+
+
+$story_title = get_field('story_title');
+$story       = get_field('story_content');
+
+$exp_title   = get_field('experience_title');
+$exp_content = get_field('experience_content');
+
+$out_title   = get_field('outside_title');
+$out_content = get_field('outside_content');
+$experience_intro    = get_field('experience_intro');
+$evidence_content    = get_field('evidence_content');
+$contribution_content = get_field('contribution_content');
+
+
+$link = get_field('button_link');
+?>
+
+<section class="therapist-section">
+  <div class="container">
+
+    <div class="therapist-wrapper">
+
+
+      <div class="therapist-left">
+        <h2<?php if (empty($banner['title'])) echo ' aria-level="1"'; // no banner h1: the name is the page heading ?>><?php echo esc_html($name); ?></h2>
+        <p class="role"><?php echo esc_html($role); ?></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="rachel-story-section">
+  <div class="container">
+    <div class="rachel-story-wrapper">
+
+      <!-- LEFT -->
+      <div class="rachel-story-left">
+
+        <?php
+$enable_book_now = get_field('enable_book_now');
+$book_now_link   = get_field('book_now_link');
+?>
+
+<?php if ($story_title): ?>
+  <div class="story-title-row">
+
+    <h2><?php echo esc_html($story_title); ?></h2>
+
+    <?php if ($enable_book_now && $book_now_link): ?>
+      <a 
+        href="<?php echo esc_url($book_now_link['url']); ?>"
+        class="read-btn"
+        target="<?php echo esc_attr($book_now_link['target'] ?: '_self'); ?>"
+      >
+        <?php echo esc_html($book_now_link['title'] ?: 'Book Now'); ?>
+      </a>
+    <?php endif; ?>
+
+  </div>
+<?php endif; ?>
+
+        <?php if($story): ?>
+          <?php echo wp_kses_post($story); ?>
+        <?php endif; ?>
+
+        <?php if($exp_title): ?>
+          <h4 aria-level="3"><?php echo esc_html($exp_title); ?></h4>
+        <?php endif; ?>
+
+        <?php if($exp_content): ?>
+          <?php echo wp_kses_post($exp_content); ?>
+        <?php endif; ?>
+      
+        <!-- TRAINING -->
+        <?php if(have_rows('training_list')): ?>
+         <h6 aria-level="4"><?php the_field('training_title'); ?></h6>
+          <ul>
+            <?php while(have_rows('training_list')): the_row(); ?>
+              <li><?php the_sub_field('training_item'); ?></li>
+            <?php endwhile; ?>
+          </ul>
+        <?php endif; ?>
+         <p><?php echo esc_html($experience_intro); ?></p>
+        <p><?php echo esc_html($evidence_content); ?></p>
+        <!-- ROLES -->
+        <?php if(have_rows('roles_list')): ?>
+          <ul>
+            <?php while(have_rows('roles_list')): the_row(); ?>
+              <li><?php the_sub_field('role_item'); ?></li>
+            <?php endwhile; ?>
+          </ul>
+        <?php endif; ?>
+        <p><?php echo esc_html($contribution_content); ?></p>
+
+        <?php if($out_title): ?>
+          <h4 aria-level="3"><?php echo esc_html($out_title); ?></h4>
+        <?php endif; ?>
+
+        <?php if($out_content): ?>
+          <?php echo wp_kses_post($out_content); ?>
+        <?php endif; ?>
+
+      </div>
+
+      <!-- RIGHT IMAGE CARD -->
+      <div class="rachel-story-right">
+        <div class="image-card">
+
+          <div class="img-wrap">
+            <?php if($image): ?>
+              <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($name); ?>">
+            <?php endif; ?>
+          </div>
+
+        
+          <?php if($link): ?>
+          <div class="card-footer">
+            <a href="<?php echo esc_url($link['url']); ?>" 
+               target="<?php echo esc_attr($link['target'] ?: '_self'); ?>">
+               
+               <?php echo esc_html($link['title']); ?>
+               
+            </a>
+          </div>
+          <?php endif; ?>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<?php get_footer(); ?>

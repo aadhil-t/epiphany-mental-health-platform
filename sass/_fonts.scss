@@ -1,0 +1,48 @@
+// Lato  fonts //
+@font-face {
+    font-family: "Lato";
+    src: url("../fonts/lato/Lato-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("../fonts/lato/Lato-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("../fonts/lato/Lato-Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+// Simple Serenity Serif //
+@font-face {
+  font-family: "Simple Serenity Serif";
+src: url("../fonts/Simple-Serenity/Webfont/SimpleSerenitySerif.woff2") format("woff2"),
+     url("../fonts/Simple-Serenity/OTF/Simple-Serenity-Serif.otf") format("opentype"),
+     url("../fonts/Simple-Serenity/Webfont/SimpleSerenitySerif.woff") format("woff"),
+     url("../fonts/Simple-Serenity/TTF/Simple-Serenity-Serif.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Simple Serenity script";
+src: url("../fonts/Simple-Serenity/Webfont/SimpleSerenityScript.woff2") format("woff2"),
+     url("../fonts/Simple-Serenity/OTF/Simple-Serenity-Script.otf") format("opentype"),
+     url("../fonts/Simple-Serenity/Webfont/SimpleSerenityScript.woff2") format("woff"),
+     url("../fonts/Simple-Serenity/TTF/Simple-Serenity-Script.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+

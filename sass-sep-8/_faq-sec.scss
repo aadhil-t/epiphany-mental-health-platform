@@ -1,0 +1,117 @@
+.faq-section {
+  padding: 120px 0;
+  background:
+    linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+    url('../images/why-epiphany/bg.png');
+    background-size: cover;
+    overflow: hidden;
+
+  .faq-wrapper {
+    display: grid;
+    grid-template-columns: 391px 1fr;
+    gap: 30px;
+    align-items: flex-start;
+
+    @media (max-width: 991px) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  .faq-left {
+    h2 {
+      color: rgba(130, 38, 15, 1);
+      font-family: $secondary-font;
+      margin: 0;
+    }
+  }
+
+  .faq-right {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .faq-item {
+    border-bottom:  1px solid rgba(0, 0, 0, 0.1);
+
+    &.active {
+      .faq-answer {
+        max-height: 500px;
+        padding-bottom: 25px;
+      }
+
+      .arrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .faq-question {
+    width: 100%;
+    background: transparent;
+    border: none;
+    padding: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    cursor: pointer;
+    text-align: left;
+
+    span {
+      font-family: $primary-font;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 25px;
+      line-height: 35px;
+      letter-spacing: 0%;
+      color: rgba(60, 24, 42, 1);
+      flex: 1;
+      @media (max-width: 768px) {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+
+    .arrow {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+      background: url("../images/about/arrow.svg") no-repeat center;
+      background-size: contain;
+      transition: transform 0.3s ease;
+      transform-origin: center;
+      flex-shrink: 0;
+      top: 50%;
+      left: 99%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      box-shadow: none;
+    }
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+
+    p {
+      font-family: $primary-font;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 17px;
+      line-height: 28px;
+      letter-spacing: 0%;
+      margin: 0 0 18px;
+      @media (max-width: 768px) {
+        font-size: 14px;
+        line-height: 24px;
+      }
+
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

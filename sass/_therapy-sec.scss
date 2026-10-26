@@ -1,0 +1,224 @@
+.therapy-section {
+  padding: 113px 0 134px;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+    url('../images/why-epiphany/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @media (max-width: 600px) {
+    padding: 50px 0 60px;
+  }
+  /* 🔥 FIXED OVERLAY */
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0; // ✅ instead of fixed height
+    background: url('../images/service/therapy/overlay.png') no-repeat center;
+    background-size: cover;
+    z-index: 1;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+    &.no-before-overlay::before{
+    display:unset;
+    background: none;
+  }
+
+  h2 {
+    font-family: $secondary-font;
+    letter-spacing: 2px;
+    color: #7a3e2f;
+    margin-bottom: 35px;
+  }
+  .prim{
+    font-weight: 300;
+    font-style: Light;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0%;
+    font-family: $primary-font;
+    text-align: center;
+  }
+
+  .therapy-wrapper {
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    gap: 89px;
+    position: relative;
+    z-index: 2;
+    // align-items: center;
+  }
+
+  .therapy-image {
+    background: #fff;
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    position: relative;
+    height: 452px;
+    img {
+      width: 100%;
+      display: block;
+      height: 381px;
+    }
+    &::before{
+      content:"";
+      position:absolute;
+      bottom: -25px;
+      left:0;
+      width:100%;
+      height: 50px;
+      background:url('../images/service/therapy/cutting.svg') no-repeat;
+      background-size:cover;
+      z-index:2;
+      @media (min-width: 1440px) {
+          height: 50px;
+      }
+    }
+  }
+
+  .therapy-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    p{
+      text-align: left;
+    }
+    .thin {
+      p {
+        font-size: 25px;
+        line-height: 35px;
+        color: #333;
+        margin-bottom: 10px;
+        text-align: start;
+        max-width: 40rem;
+      }
+      font-size: 17px;
+      line-height: 28px;
+      font-weight: 400;
+      color: #1A1818;
+      margin-bottom: 10px;
+      text-align: start;
+      max-width: 37rem;
+    }
+
+    ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      li {
+        position: relative;
+        padding-left: 22px;
+        margin-bottom: 10px;
+        font-size: 17px;
+        line-height: 35px;
+        text-align: start;
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 10px;
+          width: 12px;
+          height: 12px;
+          background: url('../images/service/therapy/circle.svg') no-repeat center;
+          background-size: contain;
+          display: block;
+        }
+      }
+    }
+
+    .note {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-family: $primary-font;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 25px;
+      line-height: 35px;
+      letter-spacing: 0%;
+      text-align: start;
+      color: #3C182A;
+    }
+  }
+
+  .consult-btn {
+    position: unset;
+    transform: unset;
+  }
+
+  /* =========================
+     💻 TABLET (1024px)
+  ========================== */
+  @media (max-width: 1024px) {
+    padding: 90px 0;
+
+    .therapy-wrapper {
+      grid-template-columns: 1fr 1fr; // ✅ equal columns
+      gap: 40px;
+    }
+
+  }
+
+  /* =========================
+     📱 MOBILE (768px)
+  ========================== */
+  @media (max-width: 768px) {
+    padding: 70px 0;
+
+    .therapy-wrapper {
+      grid-template-columns: 1fr; // ✅ stack
+      gap: 45px;
+      // text-align: center;
+    }
+
+    .therapy-image {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .therapy-content {
+      text-align: center;
+      p{
+        font-size: 20px;
+        line-height: 30px;
+      }
+
+      ul {
+        align-items: start;
+
+        li {
+          padding-left: 22px;
+        }
+      }
+    }
+
+  }
+
+  /* =========================
+     📱 SMALL MOBILE (480px)
+  ========================== */
+  @media (max-width: 480px) {
+    padding: 50px 0;
+
+
+    .therapy-content{
+      p {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      ul{
+        li{
+          font-size: 16px;
+          line-height: 30px;
+        }
+      }
+    } 
+  }
+}

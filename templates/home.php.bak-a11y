@@ -1,0 +1,770 @@
+<?php
+/*
+    Template Name: Home Page
+    */
+
+get_header();
+$pageID = get_the_ID();
+
+function home_scripts()
+{ ?>
+
+
+<?php } ?>
+<?php 
+$banner = get_field('banner_section');
+?>
+<section class="banner-section">
+    <div class="background-img">
+        <div class="content-blk">
+            <div class="container">
+                <section class="healing-hero">
+                    <div class="">
+                  
+                      <div class="healing-grid">
+                                          <?php 
+                        $banner = get_field('banner_section');
+                        ?>
+             
+                    
+                      <?php 
+                        $heading = $banner['heading'] ?? '';
+                        $subtext = $banner['subtext'] ?? '';
+                        ?>
+
+                        <?php if($heading || $subtext): ?>
+                        <div class="healing-left">
+
+                            <?php if($heading): ?>
+                              <h1 data-aos="fade-right">
+                                <?php echo nl2br(esc_html($heading)); ?>
+                              </h1>
+                            <?php endif; ?>
+
+                          <?php if($subtext): ?>
+                            <p data-aos="fade-right">
+                              <?php echo nl2br(esc_html($subtext)); ?>
+                            </p>
+                          <?php endif; ?>
+
+                        </div>
+                        <?php endif; ?>
+                  
+                    
+                        <?php 
+                        $main_img   = $banner['main_image'] ?? [];
+                        $top_img    = $banner['top_image'] ?? [];
+                        $bottom_img = $banner['bottom_image'] ?? [];
+                        ?>
+                        <?php 
+                        $has_center = !empty($main_img['url']) || !empty($top_img['url']) || !empty($bottom_img['url']);
+                        ?>
+
+                        <?php if($has_center): ?>
+                        <div class="healing-center">
+
+                          <?php if(!empty($main_img['url'])): ?>
+                            <div class="polaroid main">
+                              <img data-aos="zoom-in"
+                                  src="<?php echo esc_url($main_img['url']); ?>" 
+                                  alt="<?php echo esc_attr($main_img['alt']); ?>">
+                            </div>
+                          <?php endif; ?>
+
+                          <?php if(!empty($top_img['url'])): ?>
+                            <div class="polaroid small top" data-aos="zoom-in-up">
+                              <img src="<?php echo esc_url($top_img['url']); ?>" 
+                                  alt="<?php echo esc_attr($top_img['alt']); ?>">
+                            </div>
+                          <?php endif; ?>
+
+                          <?php if(!empty($bottom_img['url'])): ?>
+                            <div class="polaroid small bottom" data-aos="zoom-in">
+                              <img src="<?php echo esc_url($bottom_img['url']); ?>" 
+                                  alt="<?php echo esc_attr($bottom_img['alt']); ?>">
+                            </div>
+                          <?php endif; ?>
+
+                        </div>
+                        <?php endif; ?>
+                        <!-- RIGHT CONTENT -->
+                        <?php 
+                        $desc   = $banner['description'] ?? '';
+                        $button = $banner['button'] ?? [];
+
+                        $phone  = $banner['phone'] ?? '';
+                        $email  = $banner['email'] ?? '';
+                        ?>
+                        <?php 
+                        $has_right = $desc || !empty($button['url']);
+                        ?>
+
+                        <?php if($has_right): ?>
+                        <div class="healing-right" data-aos="fade-left">
+
+                          <?php if($desc): ?>
+                            
+                              <?php echo $desc; ?>
+                            
+                          <?php endif; ?>
+
+                          <?php if(!empty($button['url'])): ?>
+                            <a href="<?php echo esc_url($button['url']); ?>" 
+                              class="consult-btn-bnr"
+                              target="<?php echo esc_attr($button['target'] ?: '_self'); ?>">
+                              
+                              <?php echo esc_html($button['title']); ?>
+                            </a>
+                          <?php endif; ?>
+
+                        </div>
+                        <?php endif; ?>
+                      <?php 
+                      $has_contact = $phone || $email;
+                      ?>
+
+                      <?php if($has_contact): ?>
+                      <div class="contact-info" data-aos="fade-left">
+
+                        <?php if($phone): ?>
+                          <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/','',$phone)); ?>" class="phone">
+                            
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/footer/call.svg" alt="Phone">
+                            
+                            <?php echo esc_html($phone); ?>
+                          </a>
+                        <?php endif; ?>
+
+                        <?php if($email): ?>
+                          <a href="mailto:<?php echo esc_attr($email); ?>" class="phone">
+                            
+                            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/footer/msg.svg" alt="Email">
+                            
+                            <?php echo esc_html($email); ?>
+                          </a>
+                        <?php endif; ?>
+
+                      </div>
+                      <?php endif; ?>
+                    </div>
+                    </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="why-epiphany">
+  <div class="bg-img no-before-overlay ">
+    
+      <div class="container">
+    
+   
+        
+        <?php 
+        $why_epiphany = get_field('why_epiphany_section');
+
+        if ($why_epiphany) :
+
+          $star_image = $why_epiphany['star_image'];
+          $star_title = $why_epiphany['star_title'];
+        ?>
+
+          <?php if ($star_image || $star_title) : ?>
+            <div class="epiphany-star">
+
+              <?php if (!empty($star_image)) : ?>
+                <img src="<?php echo esc_url($star_image['url']); ?>" 
+                    alt="<?php echo esc_attr($star_image['alt']); ?>">
+              <?php endif; ?>
+
+              <?php if (!empty($star_title)) : ?>
+                <div class="star-text">
+                  <h2><?php echo $star_title; ?></h2>
+                </div>
+              <?php endif; ?>
+
+            </div>
+          <?php endif; ?>
+
+        <?php endif; ?>
+      
+         
+
+       
+        <div class="epi-item professionals" data-aos="zoom-in">
+
+        <?php if (!empty($why_epiphany['pro_title'])) : ?>
+          <h4 class="pro">
+            <?php echo esc_html($why_epiphany['pro_title']); ?>
+          </h4>
+        <?php endif; ?>
+
+        <?php if (!empty($why_epiphany['pro_desc'])) : ?>
+          <div class="pro-p">
+            <?php echo $why_epiphany['pro_desc']; ?>
+          </div>
+        <?php endif; ?>
+
+      </div>
+        <div class="epi-item specialized" data-aos="zoom-in">
+
+            <?php if (!empty($why_epiphany['specialized_title'])) : ?>
+              <h4>
+                <?php echo esc_html($why_epiphany['specialized_title']); ?>
+              </h4>
+            <?php endif; ?>
+
+            <?php if (!empty($why_epiphany['specialized_desc'])) : ?>
+              <div>
+                <?php echo $why_epiphany['specialized_desc']; ?>
+              </div>
+            <?php endif; ?>
+
+          </div>
+    
+     
+
+          
+    
+        
+              <div class="epi-item expert" data-aos="zoom-in">
+
+        <?php if (!empty($why_epiphany['expert_title'])) : ?>
+          <h4>
+            <?php echo esc_html($why_epiphany['expert_title']); ?>
+          </h4>
+        <?php endif; ?>
+
+        <?php if (!empty($why_epiphany['expert_desc'])) : ?>
+          <div>
+            <?php echo $why_epiphany['expert_desc']; ?>
+          </div>
+        <?php endif; ?>
+
+      </div>
+          
+     
+          <div class="epi-item intensive" data-aos="zoom-in">
+
+            <?php if (!empty($why_epiphany['intensive_title'])) : ?>
+              <h4>
+                <?php echo esc_html($why_epiphany['intensive_title']); ?>
+              </h4>
+            <?php endif; ?>
+
+            <?php if (!empty($why_epiphany['intensive_desc'])) : ?>
+              <div>
+                <?php echo $why_epiphany['intensive_desc']; ?>
+              </div>
+            <?php endif; ?>
+
+          </div>
+  
+      
+
+        <div class="epi-item children" data-aos="zoom-in">
+
+          <?php if (!empty($why_epiphany['children_title'])) : ?>
+            <h4>
+              <?php echo esc_html($why_epiphany['children_title']); ?>
+            </h4>
+          <?php endif; ?>
+
+          <?php if (!empty($why_epiphany['children_desc'])) : ?>
+            <div>
+              <?php echo $why_epiphany['children_desc']; ?>
+            </div>
+          <?php endif; ?>
+
+        </div>
+    
+       
+        
+   
+      <div class="epi-item family" data-aos="zoom-in">
+
+        <?php if (!empty($why_epiphany['family_title'])) : ?>
+          <h4>
+            <?php echo esc_html($why_epiphany['family_title']); ?>
+          </h4>
+        <?php endif; ?>
+
+        <?php if (!empty($why_epiphany['family_desc'])) : ?>
+          <div>
+            <?php echo $why_epiphany['family_desc']; ?>
+          </div>
+        <?php endif; ?>
+
+      </div>
+      </div>   
+      
+    
+     
+      <div class="team-section">
+    
+        <div class="container">
+    
+        <h2 class="team-title" data-aos="fade-up"> <?php echo nl2br(esc_html($why_epiphany['team_title'])); ?> </h2>
+              
+
+            <?php 
+            $why_epiphany = get_field('why_epiphany_section');
+            $therapists = $why_epiphany['select_therapists'] ?? [];
+
+            if (!empty($therapists)) :
+              $i = 0;
+            ?>
+
+        <div class="team-wrapper">
+
+            <?php foreach ($therapists as $post) : 
+              setup_postdata($post);
+              $i++;
+
+              $classes = ['card-left', 'card-center', 'card-right'];
+              $class = $classes[($i - 1) % 3];
+
+              $name  = get_the_title();
+              $role  = get_field('short_designation');
+              $image = get_field('profile_image');
+            ?>
+
+            
+              <a href="<?php the_permalink(); ?>">
+
+                <div class="team-card <?php echo esc_attr($class); ?>">
+
+                  <div class="photo" data-aos="flip-left">
+                    <span class="tape"></span>
+
+                    <?php if ($image): ?>
+                      <img src="<?php echo esc_url($image['url']); ?>" alt="">
+                    <?php endif; ?>
+
+                  </div>
+
+                  <div class="info">
+                    <h4><?php echo esc_html($name); ?></h4>
+                    <p><?php echo esc_html($role); ?></p>
+                  </div>
+
+                  <div class="circle-btn">
+                    <a href="<?php the_permalink(); ?>" class="circle-arrow">
+                      <span class="arrow"></span>
+                    </a>
+                  </div>
+
+                </div>
+
+              </a>
+
+            <?php endforeach; wp_reset_postdata(); ?>
+
+            </div>
+
+            <?php endif; ?>
+    
+      
+        <div class="team-bottom-img"></div>
+    
+      </div>
+  </div>
+
+</section>
+
+
+<?php 
+$service_section = get_field('service_section'); 
+
+if ($service_section): 
+  $cactus_image = $service_section['cactus_image'];
+  $title = $service_section['title'];
+?>
+
+<section class="cactus-section">
+
+  <?php if ($cactus_image): ?>
+    <img src="<?php echo esc_url($cactus_image['url']); ?>" alt="<?php echo esc_attr($cactus_image['alt']); ?>">
+  <?php endif; ?>
+
+  <?php if ($title): ?>
+    <h3 class="content-blk"><?php echo esc_html($title); ?></h3>
+  <?php endif; ?>
+
+</section>
+
+<?php endif; ?>
+
+
+   
+
+<section class="conditions-section">
+  <div class="container">
+
+
+    <h2 class="conditions-title" data-aos="fade-up">
+      <?php echo esc_html(get_field('service_section')['conditions_title']); ?>
+    </h2>
+    
+
+          <?php
+      $service_section = get_field('service_section');
+     
+      $selected_conditions = $service_section['select_conditions'];
+
+      if ($selected_conditions) {
+          $query = new WP_Query(array(
+              'post_type' => 'service',
+              'post__in'  => wp_list_pluck($selected_conditions, 'ID'),
+              'orderby'   => 'post__in',
+          ));
+      } else {
+          $query = new WP_Query(array(
+              'post_type' => 'service',
+              'posts_per_page' => 3,
+          ));
+      }
+
+    if ($query->have_posts()):
+    ?>
+
+    <div class="conditions-grid">
+
+      <?php
+      $classes = ['ocd', 'ptsd', 'panic']; 
+      $i = 0;
+
+      while ($query->have_posts()): $query->the_post();
+
+        $card_class = isset($classes[$i]) ? $classes[$i] : '';
+      ?>
+
+        <div class="condition-card<?php echo $card_class ? ' ' . esc_attr($card_class) : ''; ?>" data-aos="zoom-in">
+
+          <div class="card-content">
+
+            <h3><?php the_title(); ?></h3>
+
+            <div class="content">
+              <?php echo wp_trim_words(get_the_content(), 25); ?>
+            </div>
+
+            <a href="<?php the_permalink(); ?>" class="btn-outline">
+              Learn More
+            </a>
+
+          </div>
+
+        </div>
+
+      <?php
+        $i++;
+      endwhile;
+      wp_reset_postdata();
+      ?>
+
+    </div>
+
+    <?php endif; ?>
+
+ 
+
+
+
+     <?php if (!empty($service_section['view_services_link'])): 
+    $link = $service_section['view_services_link'];
+    $url = $link['url'];
+    $title = $link['title'];
+    $target = !empty($link['target']) ? $link['target'] : '_self';
+  ?>
+
+    <div class="view-services" data-aos="fade-right">
+      <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($target); ?>">
+        <?php echo esc_html($title); ?>
+      </a>
+    </div>
+
+  <?php endif; ?>
+    
+
+  </div>
+
+</section>
+
+<?php if ($consultation = get_field('consultation_section')): ?>
+
+<section class="consultation-sec">
+  <div class="consultation-wrapper">
+
+    <div class="consultation-card" data-aos="flip-left">
+
+      <?php if (!empty($consultation['title'])): ?>
+        <h2 data-aos="zoom-in">
+          <?php echo esc_html($consultation['title']); ?>
+        </h2>
+      <?php endif; ?>
+
+      <?php if (!empty($consultation['subtitle'])): ?>
+        <h3 class="bold-txt" data-aos="zoom-in">
+          <?php echo esc_html($consultation['subtitle']); ?>
+        </h3>
+      <?php endif; ?>
+
+      <?php if (!empty($consultation['description_1'])): ?>
+        <div data-aos="zoom-in">
+          <?php echo apply_filters('the_content', $consultation['description_1']); ?>
+        </div>
+      <?php endif; ?>
+
+      <?php if (!empty($consultation['description_2'])): ?>
+        <div data-aos="zoom-in">
+          <?php echo apply_filters('the_content', $consultation['description_2']); ?>
+        </div>
+      <?php endif; ?>
+
+      <?php 
+      if (!empty($consultation['button_link'])): 
+        $link = $consultation['button_link'];
+        $url = !empty($link['url']) ? $link['url'] : '';
+        $link_title = !empty($link['title']) ? $link['title'] : '';
+        $target = !empty($link['target']) ? $link['target'] : '_self';
+
+        if ($url && $link_title):
+      ?>
+        <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($target); ?>" class="consult-btn">
+          <span><?php echo esc_html($link_title); ?></span>
+        </a>
+      <?php endif; endif; ?>
+
+    </div>
+
+  </div>
+</section>
+<?php endif; ?>
+
+
+<?php
+$vintage_video_section = get_field('vintage_video_section');
+
+if (!empty($vintage_video_section)) :
+
+    $top_tape    = $vintage_video_section['top_tape'];
+    $bottom_tape = $vintage_video_section['bottom_tape'];
+    $video_file  = $vintage_video_section['video_file'];
+    $video_text  = $vintage_video_section['video_text'];
+?>
+
+<section class="vintage-video-sec">
+    <div class="container">
+
+        <div class="paper-frame">
+
+            <!-- TOP RIGHT TAPE -->
+            <?php if (!empty($top_tape)) : ?>
+                <img
+                    src="<?php echo esc_url($top_tape['url']); ?>"
+                    alt="<?php echo esc_attr($top_tape['alt']); ?>"
+                    class="tape tape-right">
+            <?php endif; ?>
+
+            <!-- BOTTOM LEFT TAPE -->
+            <?php if (!empty($bottom_tape)) : ?>
+                <img
+                    src="<?php echo esc_url($bottom_tape['url']); ?>"
+                    alt="<?php echo esc_attr($bottom_tape['alt']); ?>"
+                    class="tape tape-left">
+            <?php endif; ?>
+
+            <!-- VIDEO -->
+            <?php if (!empty($video_file)) : ?>
+                <div class="video-box" id="videoContainer">
+
+                    <video
+                        id="customVideo"
+                        autoplay
+                        muted
+                        loop
+                        controls
+                        preload="auto">
+
+                        <source
+                            src="<?php echo esc_url($video_file['url']); ?>"
+                            type="video/mp4">
+
+                        Your browser does not support the video tag.
+
+                    </video>
+
+                </div>
+            <?php endif; ?>
+
+            <!-- FULLSCREEN BUTTON -->
+            <?php if (!empty($video_text)) : ?>
+                <button
+                    type="button"
+                    id="fullscreenBtn"
+                    class="video-text">
+
+                    <?php echo esc_html($video_text); ?>
+
+                </button>
+            <?php endif; ?>
+
+        </div>
+
+    </div>
+</section>
+
+<?php endif; ?>
+
+<section class="blogs-sec">
+  <div class="container">
+
+    <?php if ($blog = get_field('blog')): ?>
+
+  <?php if (!empty($blog['blog_title'])): ?>
+    <h2 class="blog-title" data-aos="fade-up">
+      <?php echo esc_html($blog['blog_title']); ?>
+    </h2>
+  <?php endif; ?>
+
+<?php endif; ?>
+
+    <div class="blogs-grid swiper">
+  <div class="swiper-wrapper">
+
+    <?php
+    $args = array(
+      'post_type'      => 'post',
+      'posts_per_page' => 3
+    );
+
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+      while ($query->have_posts()) : $query->the_post();
+    ?>
+
+      <div class="swiper-slide" data-aos="zoom-in">
+        <div class="blog-card">
+
+      
+          <h4><?php the_title(); ?></h4>
+
+        
+          <div class="blog-meta">
+            <?php echo get_the_date('F j, Y'); ?>
+          </div>
+
+
+          <p>
+            <?php echo wp_trim_words(get_the_excerpt()); ?>
+          </p>
+
+  
+          <a href="<?php the_permalink(); ?>" class="read-btn">
+            READ MORE
+          </a>
+
+        </div>
+      </div>
+
+    <?php
+      endwhile;
+      wp_reset_postdata();
+    endif;
+    ?>
+
+  </div>
+
+  <div class="swiper-pagination"></div>
+</div>
+
+  </div>
+</section>
+
+
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+
+  let blogSwiper;
+
+  function initBlogSwiper() {
+    if (window.innerWidth <= 1245) {
+
+      if (!blogSwiper) {
+        blogSwiper = new Swiper(".blogs-grid", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          loop: true,
+
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+
+          breakpoints: {
+            640: { slidesPerView: 1.5 },
+            768: { slidesPerView: 2 }
+          }
+        });
+      }
+
+    } else {
+      if (blogSwiper) {
+        blogSwiper.destroy(true, true);
+        blogSwiper = undefined;
+      }
+    }
+  }
+
+  initBlogSwiper();
+  window.addEventListener("resize", initBlogSwiper);
+
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const btn = document.getElementById("fullscreenBtn");
+    const video = document.getElementById("customVideo");
+
+    if (btn && video) {
+
+        // Important for autoplay
+        video.muted = true;
+
+        btn.addEventListener("click", async function () {
+
+            try {
+
+                // Play video automatically
+                await video.play();
+
+                // Fullscreen
+                if (video.requestFullscreen) {
+
+                    await video.requestFullscreen();
+
+                } else if (video.webkitRequestFullscreen) {
+
+                    video.webkitRequestFullscreen();
+
+                } else if (video.msRequestFullscreen) {
+
+                    video.msRequestFullscreen();
+                }
+
+            } catch (error) {
+                console.log("Autoplay failed:", error);
+            }
+
+        });
+
+    }
+
+});
+</script>
+
+<?php get_footer(); ?>

@@ -1,0 +1,9 @@
+/*  
+Theme Name: Aco Theme
+Theme URI: https://acodez.in/
+Author: Acodez
+Description: Hey, checking if this is a pre-built theme? Nope! It is a custom template built by the awesome crew at Acodez, India
+Version: 2.0
+*/
+/* Footer policy-link separator drawn by CSS: same look, but decorative (not read as text by screen readers / contrast checkers) */
+.footer-links .border::before { content: "|"; }

@@ -1,0 +1,259 @@
+.team-section{
+  position:relative;
+  padding:140px 0 0;
+  background:url('../images/bg-watercolor.jpg') no-repeat center/cover;
+  text-align:center;
+  overflow:hidden;
+  margin-bottom: -290px;
+  &.margin-335px{
+    margin-bottom: -335px;
+  }
+  @media (max-width: 500px) {
+    padding: 30px 0 0;
+  }
+
+    &::before{
+    content:"";
+    position:absolute;
+    top:-180px;
+    left:0;
+    width:100%;
+    height:100%;
+    mix-blend-mode: multiply;
+    background:url('../images/team/overlay.png') no-repeat center/cover;
+
+    pointer-events:none;
+  }
+  &.no-before::before{
+    display:unset;
+    background: none;
+  }
+  
+}
+
+
+/* TITLE */
+
+.team-title{
+  letter-spacing:3px;
+  color:#9b3d2b;
+  margin-bottom:80px;
+  font-family: $secondary-font;
+  @media (max-width: 500px) {
+    font-size: 40px;
+    line-height: 55px;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* CARD WRAPPER */
+
+.team-wrapper{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  gap:80px;
+  position:relative;
+  z-index:2;
+  padding-bottom: 115px;
+}
+
+
+/* CARD */
+
+.team-card{
+  background:#fff;
+  width:357px;
+  padding-bottom:35px;
+  position:relative;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  transition:transform .3s ease;
+  @media (max-width: 500px) {
+    width: 297.9972905627198px;
+  }
+}
+
+
+/* IMAGE */
+
+.photo{
+  position:relative;
+  padding:14px;
+  width: 330px;
+    @media (max-width: 1225px) {
+      width: 100%;
+    }
+    @media (max-width: 500px) {
+      width: 297.9972905627198px;
+    }
+  img{
+    width:100%;
+    display:block;
+    height: 430px;
+    max-width: 330px;
+    object-fit: cover;
+    @media (max-width: 1225px) {
+      width: 100%;
+    }
+    @media (max-width: 500px) {
+      height: 358px;
+    }
+  }
+}
+
+
+/* STICKER TAPE */
+
+.tape{
+  position:absolute;
+  top:-30px;
+  left:50%;
+  transform:translateX(-50%) rotate(-6deg);
+  width:142px;
+  height:70px;
+  background:url('../images/team/tape.png') no-repeat center/contain;
+  opacity:.9;
+  z-index:3;
+}
+
+
+/* Different tape angles */
+
+.card-left .tape{
+  transform:translateX(-50%) rotate(-10deg);
+}
+
+.card-center .tape{
+  transform:translateX(-50%) rotate(3deg);
+}
+
+.card-right .tape{
+  transform:translateX(-50%) rotate(-5deg);
+}
+
+
+/* INFO */
+
+.info{
+  padding:20px;
+
+  h4{
+    font-size:22px;
+    margin-bottom:5px;
+    color: #1A1818;
+    font-family: $primary-font;
+    font-weight: 500;
+    font-style: Medium;
+    line-height: 28px;
+    text-align: center;
+    @media (max-width: 500px) {
+      font-size: 18px;
+      line-height: 34px;
+    }
+  }
+
+  p{
+    font-family: $primary-font;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    color: rgba(26, 24, 24, 0.7);
+  }
+  @media (max-width: 500px) {
+    padding: 4px 20px 0 20px;
+  }
+}
+
+
+/* ARROW BUTTON */
+
+.arrow{
+  position:absolute;
+  bottom:-20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:none;
+  background:#c87a22;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+
+/* CARD ROTATION */
+
+.card-left{
+  transform:rotate(5deg);
+}
+
+.card-center{
+  transform:rotate(0deg);
+}
+
+.card-right{
+  transform:rotate(-5deg);
+}
+
+
+/* BOTTOM FLOWERS */
+
+.team-bottom-img{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:220px;
+  background:url('../images/flowers.png') no-repeat center bottom/cover;
+  z-index:1;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width:1225px){
+
+  .team-wrapper{
+    flex-wrap: wrap;
+    align-items:center;
+    gap:50px;
+  }
+
+  .card-left{
+    @media (max-width: 500px) {
+      transform: rotate(5deg);
+    }
+  }
+
+  .card-right{
+    @media (max-width: 500px) {
+      transform: rotate(-5deg);
+    }
+  }
+
+@media (max-width:450px){
+
+  .team-wrapper{
+    justify-content: unset;
+  }
+
+}
+
+@media (max-width:388px){
+
+  .team-wrapper{
+    justify-content: center;
+  }
+
+}
+
+}

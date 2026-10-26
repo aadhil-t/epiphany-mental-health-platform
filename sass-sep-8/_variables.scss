@@ -1,0 +1,62 @@
+@import "fonts";
+
+/****Font Colors***/
+    $primary_color:#fff;
+    $heading_color: #105C8E;
+    $link_color: #162F55;
+    /****Font Colors***/
+    /****Default Colors***/
+    $red_color: #C1252B;
+    $blue_color: #00f;
+    $white_color: #fff;
+    $yellow_color: #FFC700;
+    $black_color: #1E1E1E;
+    /****Default Colors***/
+    /****Background Colors***/
+    $background_color: #FCF8F1;
+    $section_background_color: #E0F1FC;
+    $table_bgcolor: #f9f9f9;
+    $th_bgcolor: #e0f0f7;
+    $table_bordercolor: darken($table_bgcolor, 15%);
+    /****Background Colors***/
+    /****Site Fonts***/
+
+
+    /****SiteFonts***/
+    /****Button Styles***/
+    $button_background: #CC3A3A;
+    $button_color: #4D4D4D;
+    $button_border: #9FBAB9;
+    /****Button Styles***/
+    /****Menu Styles***/
+    $menu_width: 200px;
+    $menu_background: #fff;
+    $submenu_background: #ed7c5d;
+    $menulink_background: #fff;
+    $menulink_color: #ac1f2d;
+    $submenulink_color: #fff;
+    $submenu_border_color: #cffcfc;
+    /****Menu Styles***/
+
+    $border-color: rgba($black_color, 0.5);
+
+    // =============================================
+    // Primary Break Points
+    // =============================================
+
+    // These should be used with the bp (max-width, xx) mixin
+    // where a min-width is used, remember to +1 to break correctly.
+    // If these are changed, they must also be updated in app.js
+
+    $bp-xsmall: 480px;
+    $bp-small: 600px;
+    $bp-medium: 770px;
+    $bp-large: 980px;
+    $bp-xlarge: 1200px;
+
+
+    /****Site Fonts***/
+    $primary-font: "Lato";
+    $secondary-font: "Simple Serenity Serif";
+    $script-font: "Simple Serenity script";
+    /****Site Fonts***/

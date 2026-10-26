@@ -1,0 +1,63 @@
+.therapy-expect {
+  padding: 120px 0;
+  background:
+    linear-gradient(rgba(244,225,214,0.7), rgba(244,225,214,0.7)),
+    url('../images/why-epiphany/bg.png');
+  background-size: cover;
+  background-position: center;
+
+  .content {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .head{
+    .author{
+        text-decoration: underline;
+    }
+  }
+  /* MAIN HEADING */
+  h1 {
+    font-family: $secondary-font;
+    color:rgba(0, 0, 0, 1);
+    margin-bottom: 16px;
+  }
+
+  /* META TEXT */
+  .meta {
+      font-family: $primary-font;
+      font-weight: 400;
+      font-style: Regular;
+      font-size: 15px;
+      line-height: 28px;
+      letter-spacing: 0%;
+      margin-bottom: 22px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 21px;
+  }
+
+  /* PARAGRAPH */
+  .desc {
+    color: rgba(26, 24, 24, 1);
+    margin-bottom: 32px;
+  }
+
+  /* SECOND HEADING */
+  h2 {
+    font-family: $secondary-font;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    padding: 80px 0;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,342 @@
+<!-- common journey section -->
+<?php if ($common = get_field('common_section','option')): ?>
+
+<section class="journey-sec">
+
+  <div class="journey-overlay"></div>
+
+  <div class="journey-content">
+
+    <?php 
+    $line1 = !empty($common['journey_title_line_1']) ? $common['journey_title_line_1'] : '';
+    $line2 = !empty($common['journey_title_line_2']) ? $common['journey_title_line_2'] : '';
+    ?>
+
+    <?php if ($line1 || $line2): ?>
+      <h2 data-aos="fade-up">
+        
+        <?php if ($line1): ?>
+          <?php echo esc_html($line1); ?>
+        <?php endif; ?>
+
+        <?php if ($line1 && $line2): ?>
+          <br class="br-space">
+        <?php endif; ?>
+
+        <?php if ($line2): ?>
+          <?php echo esc_html($line2); ?>
+        <?php endif; ?>
+
+      </h2>
+    <?php endif; ?>
+
+
+    <?php if (!empty($common['journey_description'])): ?>
+      <p data-aos="fade-up">
+        <?php echo nl2br(esc_html($common['journey_description'])); ?>
+      </p>
+    <?php endif; ?>
+
+
+    <?php 
+    if (!empty($common['journey_button_link'])): 
+      $link = $common['journey_button_link'];
+      $url = !empty($link['url']) ? $link['url'] : '';
+      $title = !empty($link['title']) ? $link['title'] : '';
+      $target = !empty($link['target']) ? $link['target'] : '_self';
+
+      if ($url && $title):
+    ?>
+      <a href="<?php echo esc_url($url); ?>" target="<?php echo esc_attr($target); ?>" class="consult-btn">
+        <span><?php echo esc_html($title); ?></span>
+      </a>
+    <?php endif; endif; ?>
+
+  </div>
+
+</section>
+
+<?php endif; ?>
+
+
+</main>
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    
+    <div class="footer-top">
+
+      <div class="footer-left">
+
+  <div class="footer-logo" data-aos="fade-right">
+    <?php 
+    $footer_logo = get_field('footer_logo', 'option');
+
+    if( $footer_logo ): ?>
+      <img src="<?php echo esc_url($footer_logo['url']); ?>" 
+           alt="<?php echo esc_attr($footer_logo['alt']); ?>">
+    <?php endif; ?>
+  </div>
+
+  <p data-aos="fade-right">
+    <?php echo esc_html(get_field('footer_description', 'option')); ?>
+  </p>
+
+  </div>
+
+
+      <div class="footer-right" data-aos="fade-left">
+
+        <?php
+       wp_nav_menu(array(
+      'theme_location' => 'footer_menu1',
+      'menu_class'     => 'footer-menu',
+      'container'      => false,        
+      'items_wrap'     => '<ul class="%2$s">%3$s</ul>'
+       ));
+       ?>
+
+        
+        <?php 
+        $address     = get_field('footer_address', 'option');
+        $phone       = get_field('phone_number', 'option');
+        $email       = get_field('email_address', 'option');
+        $call_icon   = get_field('call_icon', 'option');
+        $email_icon  = get_field('email_icon', 'option');
+        ?>
+
+<?php if($address): ?>
+  <div class="footer-address">
+    <?php echo esc_html($address); ?>
+  </div>
+<?php endif; ?>
+
+<div class="footer-contact">
+
+  <?php if($phone): ?>
+    <a href="tel:<?php echo esc_attr(preg_replace('/[^0-9+]/', '', $phone)); ?>" class="phone">
+      
+      <?php if($call_icon): ?>
+        <img src="<?php echo esc_url($call_icon['url']); ?>" 
+             alt="<?php echo esc_attr($call_icon['alt']); ?>">
+      <?php endif; ?>
+
+      <?php echo esc_html($phone); ?>
+    </a>
+  <?php endif; ?>
+
+
+  <?php if($email): ?>
+    <a href="mailto:<?php echo esc_attr($email); ?>" class="phone">
+      
+      <?php if($email_icon): ?>
+        <img src="<?php echo esc_url($email_icon['url']); ?>" 
+             alt="<?php echo esc_attr($email_icon['alt']); ?>">
+      <?php endif; ?>
+
+      <?php echo esc_html($email); ?>
+    </a>
+  <?php endif; ?>
+
+</div>
+
+      
+        <?php if( have_rows('footer_social', 'option') ): ?>
+  
+  <div class="footer-social">
+          
+    <?php while( have_rows('footer_social', 'option') ): the_row(); 
+      
+      $link = get_sub_field('social_link');
+      $icon = get_sub_field('social_icon');
+
+      if( empty($link) && empty($icon) ) continue;
+
+      // icon-only link: give it an accessible name (icon alt, else site name from the URL)
+      $host = $link ? preg_replace('/^www\./', '', (string) parse_url($link, PHP_URL_HOST)) : '';
+      $social_label = !empty($icon['alt']) ? $icon['alt'] : ($host ? ucfirst(strtok($host, '.')) : 'Social link');
+    ?>
+
+      <a href="<?php echo esc_url($link ? $link : '#'); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr($social_label . ' (opens in a new tab)'); ?>">
+
+        <?php if(!empty($icon['url'])): ?>
+          <img src="<?php echo esc_url($icon['url']); ?>"
+               alt="">
+        <?php endif; ?>
+
+      </a>
+
+    <?php endwhile; ?>
+
+  </div>
+
+<?php endif; ?>
+   
+      </div>
+
+    </div>
+
+
+  
+    <div class="footer-row" data-aos="fade-right">
+
+     <span class="footer-label">
+        <?php echo esc_html(get_field('footer_label_menu_1', 'option')); ?>
+     </span>
+       <?php
+      wp_nav_menu(array(
+      'theme_location' => 'footer_resources_menu',
+      'container'      => false,
+      'items_wrap'     => '<ul>%3$s</ul>' 
+     ));
+       ?>
+
+    </div>
+
+
+
+     
+    <div class="footer-row" data-aos="fade-right">
+
+  <span class="footer-label">
+        <?php echo esc_html(get_field('footer_label_menu_2', 'option')); ?>
+     </span>
+
+  <?php
+  if (has_nav_menu('footer_legal_menu')) {
+      wp_nav_menu(array(
+          'theme_location' => 'footer_legal_menu',
+          'container'      => false,
+          'items_wrap'     => '<ul>%3$s</ul>'
+      ));
+  }
+  ?>
+
+</div>
+
+
+  
+    <div class="footer-bottom" data-aos="fade-up">
+
+     
+  <?php 
+$copyright = get_field('copyright_text', 'option');
+$dev_text  = get_field('developer_text', 'option');
+$dev_name  = get_field('developer_name', 'option');
+$dev_link  = get_field('developer_link', 'option');
+  ?>
+
+<div class="copyright">
+  
+  <?php if($copyright): ?>
+    <?php echo esc_html($copyright); ?>
+  <?php endif; ?>
+
+  <?php if($dev_link && $dev_name): ?>
+    <a class="acodez" href="<?php echo esc_url($dev_link); ?>" target="_blank">
+      <p class="aco">
+        <?php if($dev_text): ?>
+          <?php echo esc_html($dev_text); ?>
+        <?php endif; ?>
+        <span><?php echo esc_html($dev_name); ?></span>
+      </p>
+    </a>
+  <?php endif; ?>
+
+</div>
+
+   <div class="footer-links">
+
+ <div class="footer-links">
+
+<?php
+$locations = get_nav_menu_locations();
+
+if (isset($locations['footer_policy_menu'])):
+
+  $menu = wp_get_nav_menu_items($locations['footer_policy_menu']);
+  $total = count($menu);
+  $i = 0;
+
+  foreach ($menu as $item):
+    $i++;
+?>
+
+    <a href="<?php echo esc_url($item->url); ?>"
+   target="<?php echo esc_attr($item->target); ?>">
+  <?php echo esc_html($item->title); ?>
+</a>
+
+    <?php if ($i < $total): ?>
+      <span class="border">|</span>
+    <?php endif; ?>
+
+<?php endforeach; endif; ?>
+
+</div>
+
+</div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+<?php wp_footer(); ?>
+
+    <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: false,
+      offset: 100
+    });
+  });
+
+  window.addEventListener("load", function () {
+    AOS.refresh();
+  });
+</script>
+
+<script>
+  // reCAPTCHA injects an unlabelled hidden textarea; label it for accessibility checkers (no visual change)
+  (function () {
+    function labelRecaptcha() {
+      document.querySelectorAll("textarea.g-recaptcha-response:not([aria-label])").forEach(function (el) {
+        el.setAttribute("aria-label", "reCAPTCHA response");
+        el.setAttribute("aria-hidden", "true");
+      });
+    }
+    new MutationObserver(labelRecaptcha).observe(document.documentElement, { childList: true, subtree: true });
+    labelRecaptcha();
+  })();
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const loader = document.getElementById("preloader");
+
+  if (loader) {
+    document.body.classList.remove("loading");
+    loader.classList.add("hide");
+
+    setTimeout(() => {
+      loader.remove();
+    }, 500);
+  }
+
+});
+</script>
+
+
+	</body>
+
+	</html>

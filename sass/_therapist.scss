@@ -1,0 +1,59 @@
+.therapist-section {
+  position: relative;
+  padding: 0 0 100px;
+  height: 776.9998779296905px;
+  background:
+    linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+    url('../images/why-epiphany/bg.png');
+    background-position:center;
+    background-size:cover;
+    z-index: 1;
+    display: flex;
+    align-items: flex-end;
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 675px;
+      background: url("../images/therapist/overlay.svg") no-repeat;
+      background-size: cover;
+      background-position: top center;
+      opacity: 0.8; 
+      z-index: 0;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+  .therapist-wrapper {
+
+  }
+
+  /* LEFT */
+  .therapist-left {
+    padding-bottom: 103px;
+    @media (max-width: 768px) {
+      padding-bottom: 0;
+    }
+    h2 {
+      font-size: 48px;
+      font-family: $secondary-font;
+      color: #8c3b2a;
+      font-weight: 400;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .role {
+      font-size: 16px;
+      color: #4a4a4a;
+      letter-spacing: 0.5px;
+    }
+  }
+
+}
+

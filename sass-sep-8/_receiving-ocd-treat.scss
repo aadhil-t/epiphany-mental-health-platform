@@ -1,0 +1,121 @@
+.receiving-ocd-treatment {
+  padding: 102px 0 120px;
+  position: relative;
+      background:
+    linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+    url('../images/why-epiphany/bg.png');   
+    background-size: cover;
+    background-position: center;
+      z-index: 1;
+      @media (max-width: 800px) {
+          padding: 50px 0 60px;
+      }
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url('../images/service-detail/overlay.png') center/cover no-repeat;
+        z-index: 0;
+        pointer-events: none; 
+        mix-blend-mode: multiply;
+        height: 1311px;
+    }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 125px;
+    position: relative;
+    z-index: 1; 
+  }
+
+  /* LEFT */
+  .left {
+    // max-width: 480px;
+
+    h2 {
+      font-family: $secondary-font;
+      margin-bottom: 16px;
+      color: rgba(130, 38, 15, 1);
+    }
+
+    p {
+        font-family: $primary-font;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 25px;
+        line-height: 35px;
+        letter-spacing: 0%;
+        color: rgba(26, 24, 24, 1);
+        margin-bottom: 30px;
+        @media (max-width: 600px) {
+            font-size: 18px;
+            line-height: 28px;
+        }
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: #c89a5a;
+      color: #fff;
+      padding: 12px 22px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: 0.3s;
+
+      &:hover {
+        background: #b58346;
+      }
+    }
+  }
+
+  /* RIGHT */
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .item {
+      h4 {
+          
+          font-family: $primary-font;
+          font-weight: 400;
+          font-style: Regular;
+          font-size: 25px;
+          line-height: 35px;
+          letter-spacing: 0%;
+          margin-bottom: 6px;
+          color: rgba(60, 24, 42, 1);
+      }
+
+      p {
+          font-family: $primary-font;
+        color: rgba(26, 24, 24, 1);
+        font-size: 17px;
+        line-height: 28px;
+      }
+    }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 992px) {
+    .wrapper {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .left {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  .consult-btn{
+    position: unset;
+    transform: unset;
+  }
+}

@@ -1,0 +1,78 @@
+.wp-singular{
+      background:
+    linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+    url('../images/why-epiphany/bg.png');
+}
+.ewd-ufaq-post-margin-symbol {
+    display: none;
+}
+
+.ewd-ufaq-faq-title-text {
+  position: relative;
+  padding-right: 35px;
+
+  &::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: url("../images/about/arrow.svg") no-repeat center;
+    background-size: contain;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg); // default down
+    transition: transform 0.3s ease;
+  }
+}
+
+/* Active = arrow upward */
+.ewd-ufaq-post-active .ewd-ufaq-post-margin::before,
+.ewd-ufaq-faq-title[aria-expanded="true"] .ewd-ufaq-faq-title-text::before {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.ewd-ufaq-faq-title-text{
+    padding: 24px 0 ;
+    width: 100% !important;
+    @media (max-width: 768px) {
+        padding: 10px 0;
+    }
+    h4{
+        font-family: $primary-font;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 25px;
+        line-height: 35px;
+        letter-spacing: 0%;
+        color: rgba(60, 24, 42, 1);
+        flex: 1;
+        @media (max-width: 768px) {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+}
+
+.ewd-ufaq-faq-post{
+    max-width: 60rem;
+    p{
+        font-family: $primary-font;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 17px;
+        line-height: 28px;
+        letter-spacing: 0%;
+        margin-bottom: 12px 0;
+        @media (max-width: 768px) {
+            font-size: 14px;
+            line-height: 24px;
+        }
+    }
+}
+.ewd-ufaq-faq-body{
+    padding: 5px !important;
+}
+
+.ewd-ufaq-faq-div {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}

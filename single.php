@@ -1,0 +1,152 @@
+<?php
+/*
+Template Name: Blog Detail Page
+*/
+
+get_header();
+
+wp_enqueue_script('swiper');
+add_action('wp_footer', 'home_scripts', 25);
+
+function home_scripts(){ ?>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const authorBox = document.querySelector(".author-content");
+  const btn = document.querySelector(".read-more-btn");
+  const text = document.querySelector(".read-more-text");
+
+  if (btn && authorBox && text) {
+    btn.addEventListener("click", function () {
+      authorBox.classList.toggle("active");
+      text.innerText = authorBox.classList.contains("active") ? "Read less" : "Read more";
+    });
+  }
+});
+</script>
+<?php } ?>
+
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+<!-- ================= BLOG CONTENT ================= -->
+<section class="therapy-expect">
+  <div class="container">
+    <div class="content">
+
+      <div class="head">
+        <h1><?php the_title(); ?></h1>
+
+        <p class="meta">
+          By <span class="author"><?php the_author(); ?></span> | <?php echo get_the_date(); ?>
+        </p>
+      </div>
+
+      <p class="desc">
+        <?php the_content(); ?>
+     </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUTHOR DATA ================= -->
+<?php 
+$user_id = get_the_author_meta('ID');
+
+$name  = get_the_author();
+$bio   = get_field('bio_content', 'user_' . $user_id);
+$image = get_field('author_image', 'user_' . $user_id);
+
+if(!$bio){
+    $bio = get_the_author_meta('description');
+}
+
+$author_url = get_author_posts_url($user_id);
+?>
+
+<section class="author-section">
+  <div class="container">
+    <div class="author-wrapper">
+
+      <div class="author-content">
+
+        <div class="head-blk">
+
+          <div class="img-blk">
+            <?php if($image): ?>
+              <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($name); ?>">
+            <?php endif; ?>
+          </div>
+
+          <div class="info-blk">
+            <h4 aria-level="2"><?php echo esc_html($name); ?></h4>
+
+            <a href="<?php echo esc_url($author_url); ?>" class="read-btn">
+              SEE FULL BIO
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Description -->
+        <p class="desc">
+          <?php echo esc_html($bio); ?>
+        </p>
+
+        <!-- Toggle Button -->
+        <div class="read-more-btn">
+          <span class="read-more-text">Read more</span>
+          <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/blog-detail/arrow.svg" alt="Read more">
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEXT / PREVIOUS ================= -->
+<?php
+$prev_post = get_previous_post();
+$next_post = get_next_post();
+?>
+<section class="next-blog-sec <?php echo (!$prev_post && $next_post) ? 'has-only-next' : ''; ?>">
+  <div class="container">
+    <div class="next-blog-wrapper">
+
+      <!-- Previous Blog -->
+      <?php if ($prev_post): ?>
+        <div class="prev-blog nav-blog">
+          <a href="<?php echo get_permalink($prev_post->ID); ?>">
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/blog-detail/arrow.svg" alt="">
+            Previous
+          </a>
+          <div class="blog-info">
+           <a href="<?php echo get_permalink($prev_post->ID); ?>">
+             <h3><?php echo esc_html(get_the_title($prev_post->ID)); ?></h3>
+           </a>
+          </div>
+        </div>
+      <?php endif; ?>
+
+      <!-- Next Blog -->
+      <?php if ($next_post): ?>
+        <div class="next-blog nav-blog">
+          <a href="<?php echo get_permalink($next_post->ID); ?>">
+            Next
+            <img src="<?php echo get_stylesheet_directory_uri(); ?>/images/blog-detail/arrow-nxt.svg" alt="">
+          </a>
+          <div class="blog-info">
+            <a href="<?php echo get_permalink($next_post->ID); ?>">
+              <h3><?php echo esc_html(get_the_title($next_post->ID)); ?></h3>
+            </a>
+          </div>
+        </div>
+      <?php endif; ?>
+
+    </div>
+  </div>
+</section>
+
+<?php endwhile; endif; ?>
+
+<?php get_footer(); ?>

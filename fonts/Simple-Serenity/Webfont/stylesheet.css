@@ -1,0 +1,18 @@
+@font-face {
+    font-family: 'Simple Serenity Serif';
+    src: url('SimpleSerenitySerif.woff2') format('woff2'),
+        url('SimpleSerenitySerif.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Simple Serenity Script';
+    src: url('SimpleSerenityScript.woff2') format('woff2'),
+        url('SimpleSerenityScript.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

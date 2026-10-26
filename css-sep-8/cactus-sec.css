@@ -1,0 +1,17 @@
+.cactus-section {
+  position: relative;
+  z-index: 1;
+}
+.cactus-section img {
+  width: 100%;
+  display: block;
+}
+.cactus-section .content-blk {
+  position: absolute;
+  bottom: -110px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: white;
+  padding: 42px;
+}

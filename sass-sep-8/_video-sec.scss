@@ -1,0 +1,177 @@
+
+
+.vintage-video-sec {
+  padding: 40px 0 60px;
+  position: relative;
+  overflow: hidden;
+
+  .container {
+    width: min(1380px, 92%);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* =========================
+      WHITE PAPER FRAME
+  ========================= */
+
+  .paper-frame {
+    position: relative;
+    width: 760px;
+    background: #ffffff;
+
+    padding: 8px 8px 54px;
+
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.03),
+      0 12px 35px rgba(0, 0, 0, 0.06);
+
+    /* =========================
+        VIDEO BOX
+    ========================= */
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #ece9e4;
+
+      iframe {
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+
+        border: none;
+      }
+
+      video{
+        width: 100%;
+      }
+    }
+
+    /* =========================
+        FULLSCREEN BUTTON
+    ========================= */
+
+    .video-text {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+
+      transform: translateX(-50%);
+
+      margin: 0;
+      padding: 0;
+
+      border: none;
+      background: transparent;
+
+      font-family: $primary-font;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: 0%;
+      color: #1A1818;
+
+      text-align: center;
+      white-space: nowrap;
+
+      cursor: pointer;
+
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    /* =========================
+        PAPER TAPE IMAGES
+    ========================= */
+
+    .tape {
+      position: absolute;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0.92;
+      top: unset;
+      left: unset;
+    }
+
+    .tape-right {
+      width: 107px;
+      height: 60px;
+
+      top: -7px;
+      right: -27px;
+
+      transform: rotate(54deg);
+    }
+
+    .tape-left {
+      width: 107px;
+      height: 61px;
+
+      left: -38px;
+      bottom: 0;
+
+      transform: rotate(35deg);
+    }
+  }
+}
+
+/* =========================
+    RESPONSIVE
+========================= */
+
+@media (max-width: 991px) {
+
+  .vintage-video-sec {
+    padding: 0 0 60px;
+
+    .paper-frame {
+      width: 100%;
+      max-width: 680px;
+    }
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .vintage-video-sec {
+    padding: 20px 0 60px;
+
+    .paper-frame {
+      padding: 8px 8px 54px;
+
+      .video-text {
+        font-size: 14px;
+        line-height: 22px;
+
+        bottom: 14px;
+      }
+
+      .tape-right {
+        width: 93px;
+        height: 45px;
+        top: 0;
+        right: -34px;
+      }
+
+      .tape-left {
+           width: 93px;
+        height: 45px;
+        left: -35px;
+        bottom: -15px;
+
+      }
+    }
+  }
+
+}

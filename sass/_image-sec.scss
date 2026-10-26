@@ -1,0 +1,19 @@
+.image-section{
+    position: relative;
+    z-index: 1;
+    @media (max-width: 500px) {
+        height: 300px;
+    }
+    .image-blk{
+        img{
+            width: 100%;
+            object-fit: cover;
+            @media (max-width: 500px) {
+                height: 300px;
+            }
+        }
+        @media (max-width: 500px) {
+            height: 300px;
+        }
+    }
+}

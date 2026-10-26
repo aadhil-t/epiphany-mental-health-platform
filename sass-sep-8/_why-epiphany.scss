@@ -1,0 +1,296 @@
+.why-epiphany{
+  background:#efe5dc;
+  padding:0 0;
+  position:relative;
+  &::before{
+    content:"";
+    position:absolute;
+    top: -55px;
+    // top: -120px;
+    left:0;
+    width:100%;
+    height:120px;
+    background:url('../images/why-epiphany/cutting.svg') no-repeat center top;
+    background-size:cover;
+    z-index:2;
+    @media (min-width: 1440px) {
+        height: 140px;
+    }
+  }
+  &.no-before::before{
+    display:unset;
+    background: none;
+  }
+  .container{
+    position:relative;
+    max-width:1100px;
+    margin:auto;
+    min-height:720px;
+  }
+
+.bg-img{
+  background:
+    linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+    url('../images/why-epiphany/bg.png');
+
+  background-size:cover;
+  background-position:center;
+  position: relative;
+  padding-top: 150px;
+  &.pad-115{
+    padding: 0;
+  }
+    &::before{
+    content:"";
+    position:absolute;
+    top: -55px;
+    left:0;
+    width:100%;
+    height:1530px;
+    background:url('../images/about/overlay.svg') no-repeat center top;
+    background-size:cover;
+    }
+    &.no-before-overlay::before{
+      display:unset;
+      background: none;
+    }
+  @media (max-width: 500px) {
+    padding-top: 80px;
+  }
+}
+.about-epiphany-cnt{
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3{
+    font-family: $primary-font;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 0%;
+    text-align: center;
+    color: rgba(130, 38, 15, 1);
+    margin-bottom: 34px;
+    @media (max-width: 500px) {
+      font-size: 30px;
+      line-height: 35px;
+    }
+  }
+  .abt-section-title{
+    max-width: 27rem;
+  }
+
+  p{
+    font-family: $primary-font;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 17px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
+.consult-btn{
+  position: unset;
+  transition: none;
+  transform: none;
+}
+}
+
+
+/* STAR CENTER */
+
+.epiphany-star{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:499px;
+  @media (max-width: 768px) {
+    width: 100%;
+    position: unset;
+    transform: unset;
+    display: flex;
+    justify-content: center;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+    position: unset;
+    transform: unset;
+  }
+  img{
+    width:100%;
+    display:block;
+    @media (max-width: 768px) {
+      max-width: 500px;
+    }
+  }
+
+  .star-text{
+    position:absolute;
+    top:52%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#f7f3ee;
+    padding:40px 19px;
+    text-align:center;
+    width: 280px;
+    height: 280px;
+    @media (max-width: 768px) {
+      top: 17%;
+      // width: 100%;
+      width: fit-content;
+      height: auto;
+    }
+    @media (max-width: 500px) {
+      top: 12%;
+      // width: 100%;
+      width: fit-content;
+      height: auto;
+    }
+    @media (max-width: 400px) {
+      top: 11%;
+      // width: 100%;
+      width: fit-content;
+      height: auto;
+    }
+    @media (max-width: 330px) {
+      top: 9%;
+      // width: 100%;
+      width: fit-content;
+      height: auto;
+      padding: 20px 15px;
+    }
+
+    h2{
+      letter-spacing:3px;
+      color:#8a3b2c;
+      line-height:1.3;
+      font-family: $secondary-font;
+      // font-family: $script-font;
+    }
+  }
+}
+
+
+/* TEXT ITEMS */
+
+.epi-item{
+  position:absolute;
+  max-width:282px;
+  text-align:center;
+  @media (max-width: 768px) {
+    position: unset;
+    max-width: 100%;
+    margin-bottom: 58px;
+  }
+  @media (max-width: 500px) {
+    position: unset;
+    max-width: 100%;
+    margin-bottom: 58px;
+  }
+
+  h4{
+    font-family: $script-font;
+    margin-bottom:10px;
+    font-size: 60px;
+    color:#8a3b2c;
+    @media (max-width: 768px) {
+      font-size: 75px;
+    }
+  }
+  .pro{
+    // font-family: $secondary-font;
+    margin-bottom:10px;
+    font-size: 60px;
+    color:#381d2a;
+    text-transform: capitalize;
+    @media (max-width: 768px) {
+      font-size: 75px;
+    }
+  }
+
+  p{
+    font-size:17px;
+    line-height:1.6;
+    color:#444;
+    font-family: $primary-font;
+  }
+  .pro-p{
+    font-size:17px;
+    line-height:1.6;
+    color:#444;
+    font-family: $secondary-font;
+  }
+}
+
+
+/* POSITIONS */
+
+.professionals{
+  // top:40px;
+  // left:220px;
+  top: 0px;
+  left: 145px;
+  h4{
+    color: #82260F;
+  }
+  @media (max-width:500px) {
+    margin-top: 50px;
+  }
+  @media (max-width:375px) {
+    margin-top: 30px;
+  }
+}
+
+.specialized{
+  // top:40px;
+  // right:180px;
+  top: -30px;
+  right: 140px;
+  h4{
+    color: #381d2a;
+  }
+}
+
+.expert{
+  top: 245px;
+  right: -40px;
+  h4{
+    color: #381d2a;
+  }
+  @media (max-width: 1030px) {
+    right: 25px;
+  }
+}
+
+.intensive{
+  bottom: 0px;
+  right: 125px;
+  h4{
+    color: #3C182A;
+  }
+}
+
+.children{
+  bottom: 0;
+  left: 130px;
+  h4{
+    color: #381d2a;
+  }
+}
+
+.family{
+  top: 251px;
+  left: -25px;
+  h4{
+    color: #381d2a;
+  }
+  @media (max-width: 1030px) {
+    left: 25px;
+  }
+}

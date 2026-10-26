@@ -1,0 +1,157 @@
+
+.blogs-sec {
+  background:
+  linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+  url('../images/why-epiphany/bg.png');
+  padding: 0 0 128px 0;
+  text-align:center;
+  @media (max-width: 600px) {
+    padding: 0 0 60px 0;
+  }
+}
+
+.blog-title{
+  margin-bottom:70px;
+  color:#7d3f34;
+  font-weight:400;
+  font-family: $secondary-font;
+  @media (max-width: 500px) {
+    margin-bottom:20px;
+    line-height: 55px;
+    font-size: 40px;
+  }
+}
+/* DESKTOP GRID */
+.blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden; // 🔥 important for swiper
+}
+
+/* CARD */
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+ h4{
+    color:#3C182A;
+    margin-bottom:15px;
+    font-family: $primary-font;
+    font-weight: 500;
+    font-style: Medium;
+    line-height: 38px;
+    text-align: center;
+    max-width: 22rem;
+    min-height: 76px;
+    @media (max-width:600px) {
+      font-size: 24px;
+      line-height: 34px;
+    }
+    @media (max-width:375px) {
+      font-size: 22px;
+      line-height: 34px;
+    }
+  }
+
+  .blog-meta{
+    color:#82260F;
+    margin-bottom:18px;
+    font-family: $primary-font;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  p{
+    color:#1A1818;
+    margin-bottom:25px;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    font-family: $primary-font;
+    max-width: 23rem;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;   // number of lines
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    @media (max-width: 425px) {
+      font-size: 14px;
+      line-height: 20px;
+      -webkit-line-clamp: 3;
+    }
+  }
+}
+
+/* BUTTON */
+.read-btn{
+  display:inline-block;
+  padding:14px 24px;
+  border: 1px solid #4D988C;
+  border-radius:25px;
+  font-size:14px;
+  font-weight: 700 !important;
+  letter-spacing:1px;
+  color: #1A1818 !important;
+  text-decoration:none;
+  transition:.3s;
+  font-family: $primary-font !important;
+  font-weight: 700;
+  font-style: Bold;
+  line-height: 100%;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+
+  &:hover{
+    background: #4D988C;
+    color:#fff;
+  }
+}
+
+.swiper-pagination-bullet-active{
+  background: rgba(77, 152, 140, 1);
+}
+
+/* =========================
+   SWIPER MODE (<1024px)
+========================= */
+
+@media (max-width: 1024px) {
+
+  .blogs-grid {
+    display: block; // disable grid
+  }
+
+  .blogs-grid.swiper {
+    overflow: hidden;
+  }
+
+  .blogs-grid .swiper-wrapper {
+    display: flex;
+  }
+
+  .blogs-grid .swiper-slide {
+    flex-shrink: 0;
+    height: auto;
+  }
+
+  .blog-card {
+    width: 100%;
+  }
+
+  .swiper-pagination {
+    margin-top: 20px;
+    position: relative;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+
+  }
+
+}

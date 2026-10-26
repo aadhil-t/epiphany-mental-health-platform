@@ -1,0 +1,62 @@
+.event-update {
+  padding: 160px 0 121px;
+  background:
+  linear-gradient(rgba(244,225,214,0.6), rgba(244,225,214,0.6)),
+  url('../images/why-epiphany/bg.png');
+  @media (max-width:768px) {
+      padding: 120px 0 60px;
+  }
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .event-head {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 21px;
+      margin-bottom: 38px;
+    
+    h1 {
+        font-family: $secondary-font;
+        margin-bottom: 16px;
+    }
+
+    p {
+        font-family: $primary-font;
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 15px;
+        line-height: 28px;
+        letter-spacing: 0%;
+        color: #1A1818;
+    }
+  }
+
+  .event-card {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 41px;
+  }
+
+  .nav {
+    font-family: $primary-font;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    color: rgba(26, 24, 24, 1);
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 15px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    a{
+        display: flex;
+        color: rgba(26, 24, 24, 1);
+        align-items: center;
+        gap: 11px;
+    }
+  .next-btn {
+    margin-left: auto;
+  }
+  }
+
+}

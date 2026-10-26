@@ -1,0 +1,48 @@
+// default //
+@import "aos";
+@import "variables";
+@import "default";
+@import "wordpress";
+@import 'swiper';
+@import "custom";
+@import "responsive";
+
+//  common //
+@import "header";
+@import "footer";
+@import "banner-sec";
+@import "sub-banner";
+@import "common";
+
+
+//  page //
+@import "journey-sec";
+@import "why-epiphany";
+@import "team-sec";
+@import "condition-sec";
+@import "consultation";
+@import "blog-sec";
+@import "cactus-sec";
+@import "services";
+@import "image-sec";
+@import "therapy-sec";
+@import "contact";
+@import "therapy";
+@import "therapist";
+@import "therapist-story-sec";
+@import "event";
+@import "event-detail";
+@import "ocd-treatment-sec";
+@import "receiving-ocd-treat";
+@import "therapy-expect";
+@import "author-sec";
+@import "faq-sec";
+@import "next-blog-sec";
+@import "404-page";
+@import "sample-post";
+@import "archive";
+
+@import "faq-page";
+
+
+@import "video-sec";

@@ -1,0 +1,203 @@
+.conditions-section {
+  position: relative;
+  padding: 160px 0 450px;
+  text-align: center;
+  overflow: hidden;
+  @media (max-width: 600px) {
+    padding: 130px 0 410px;
+  }
+}
+
+/* BACKGROUND IMAGE */
+.conditions-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../images/condition/overlay.jpeg") no-repeat center/cover;
+  opacity: 0.7;
+  z-index: 0;
+}
+
+/* LIGHT WARM OVERLAY */
+.conditions-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(195, 122, 27, 0.1),
+    rgba(195, 122, 27, 0.1)
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* CONTENT ABOVE */
+.conditions-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* TITLE */
+.conditions-title {
+  color: #9b3d2b;
+  margin-bottom: 37px;
+  font-family: $secondary-font;
+  text-transform: uppercase;
+  @media (max-width: 500px) {
+    font-size: 40px;
+    line-height: 55px;
+  }
+}
+
+/* GRID */
+.conditions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* CARD BASE */
+.condition-card {
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+
+  /* IMPORTANT: helps match Figma blending */
+  background-blend-mode: multiply;
+}
+
+/* =========================
+   WATER COLOR CARDS
+   (DEPTH + TEXTURE + COLOR)
+========================= */
+
+/* OCD (warm orange) */
+.ocd {
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.15) 100%),
+    linear-gradient(rgba(224, 154, 84, 0.80), rgba(224, 154, 84, 0.80)),
+    url('../images/condition/layer1.png') center/cover no-repeat;
+}
+
+/* PTSD (rich red) */
+.ptsd {
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0) 35%, rgba(0,0,0,0.25) 100%),
+    linear-gradient(rgba(176, 55, 30, 0.80), rgba(176, 55, 30, 0.80)),
+    url('../images/condition/layer1.png') center/cover no-repeat;
+}
+
+/* Panic (deep plum) */
+.panic {
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0) 35%, rgba(0,0,0,0.3) 100%),
+    linear-gradient(rgba(120, 45, 65, 0.80), rgba(120, 45, 65, 0.80)),
+    url('../images/condition/layer1.png') center/cover no-repeat;
+}
+
+/* TEXT CONTENT */
+.card-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h3 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    font-weight: 500;
+    max-width: 15rem;
+  }
+
+  p {
+    font-family: $primary-font;
+    font-weight: 300;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0%;
+    max-width: 17rem;
+    margin-bottom: 25px;
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
+/* BUTTON */
+.btn-outline {
+  display: inline-block;
+  padding: 15px 22px;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  color: #fff !important;
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-family: $primary-font;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 10%;
+  text-transform: uppercase;
+  margin-top: auto; // 🔥 THIS is the key
+}
+
+.btn-outline:hover {
+  background: #fff;
+  color: #1E1E1E !important;
+}
+
+/* VIEW ALL SERVICES */
+.view-services {
+  margin-top: 50px;
+
+  a {
+    font-size: 16px;
+    color: #82260F;
+    text-decoration: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: $primary-font;
+    font-weight: 700;
+    font-style: Bold;
+    line-height: 100%;
+    letter-spacing: 10%;
+    text-transform: uppercase;
+    
+
+
+    &::after {
+      content: "";
+      width: 13px;
+      height: 13px;
+      background: url('../images/condition/arrow.svg') no-repeat center;
+      background-size: contain;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+      transform: translateX(5px);
+    }
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+  .conditions-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}

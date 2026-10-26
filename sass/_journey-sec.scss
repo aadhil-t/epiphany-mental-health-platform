@@ -1,0 +1,77 @@
+.journey-sec{
+  position:relative;
+  padding: 106px 20px;
+  background: url('../images/journey/journey.jpg')  center -325px /cover no-repeat;
+  text-align:center;
+  overflow:hidden;
+  height: 600px;
+  z-index: 1;
+  @media (max-width:1030px) {
+    background: url('../images/journey/journey.jpg')  center  /cover no-repeat;
+  }
+  .consult-btn{
+      bottom:-145px;
+      @media (max-width: 600px) {
+        bottom: -120px;
+      }
+  }
+  @media (max-width: 550px) {
+    padding: 60px 20px;
+  }
+}
+
+/* overlay */
+
+.journey-overlay{
+  position:absolute;
+  inset:0;
+//   background:rgba(75, 12, 22, 0.85);
+background: rgba(60, 24, 42, 1);
+mix-blend-mode: multiply;
+
+}
+
+/* content */
+
+.journey-content{
+  position:relative;
+  max-width:800px;
+  margin:auto;
+  color:#fff;
+  z-index:2;
+
+  h2{
+    font-weight:400;
+    margin-bottom:16px;
+    color: #FFFFFF;
+    font-family: $secondary-font;
+    font-style: Regular;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    @media (max-width: 600px) {
+      line-height: 50px;
+      font-size: 40px;
+    }
+    .br-space{
+      @media (max-width: 600px) {
+        display: none;
+      }
+    }
+  }
+
+  p{
+    margin-bottom: 22px;
+    color: #F4E1D6;
+    font-family: $primary-font;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 28px;
+    line-height: 40px;
+    text-align: center;
+    @media (max-width: 600px) {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+}
