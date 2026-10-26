@@ -1,27 +1,23 @@
-Epiphany — Mental Health Platform
+# Epiphany — Mental Health Platform
 
 A professional website developed for Epiphany, focused on OCD treatment, mental health awareness, and patient support.
 
-Project Overview
+## Project Overview
 
 This project focuses on delivering a responsive, user-friendly digital experience for a mental health treatment website.
 
-Key Features
+## Key Features
 
-Responsive website design
+- Responsive website design
+- User-friendly navigation and interface
+- Clear presentation of treatment information
+- Cross-device compatibility
+- Accessible and maintainable frontend structure
 
-User-friendly navigation and interface
+## Technologies Used
 
-Clear presentation of treatment information
+HTML5, CSS3 / SCSS, JavaScript, PHP / WordPress *(use only the technologies you actually worked with).*
 
-Cross-device compatibility
+## My Role
 
-Accessible and maintainable frontend structure
-
-Technologies Used
-
-Add the technologies used in the actual project, such as HTML, SCSS, JavaScript, PHP, or WordPress.
-
-My Role
-
-Frontend Developer — contributed to the website's frontend implementation, responsive layouts, styling, and user interface.
+**Frontend Developer** — contributed to the website's frontend implementation, responsive layouts, styling, and user interface.
